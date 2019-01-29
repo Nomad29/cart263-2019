@@ -30,9 +30,31 @@ div {
   color: red;
 }
 
-/* Revealed elements need to be highlighted because it's a disaster! */
+.redacted {
+  background-color: black;
+  color: transparent;
+  text-decoration: none;
+}
+
+/* Style for the counter's number */
+#secret-count {
+  background-color: transparent;
+  color: black !important;
+  text-decoration: none !important;
+  font-size:32px;
+  font-weight: 400;
+}
+
+/* Style for secret words */
+.secret {
+  background-color: transparent;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+/* Revealed secrets with a yellow background! */
 .found {
   background-color: yellow;
-  text-decoration: none;
-  color: black;
+  text-decoration: none !important;
+  color: black !important;
 }
