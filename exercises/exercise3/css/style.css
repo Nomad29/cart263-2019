@@ -27,5 +27,12 @@ div {
 .revealed {
   background-color: transparent;
   text-decoration: underline;
-  color: red
+  color: red;
+}
+
+/* Revealed elements need to be highlighted because it's a disaster! */
+.found {
+  background-color: yellow;
+  text-decoration: none;
+  color: black;
 }
