@@ -13,6 +13,8 @@ secrets become revealed!
 
 // A place to store the jQuery selection of all spans
 let $spans;
+// Variable for the counter of secrets
+let counter = 0;
 
 // When the document is loaded we call the setup function
 $(document).ready(setup);
@@ -24,9 +26,14 @@ function setup() {
   // Save the selection of all spans (since we do stuff to them multiple times)
   $spans = $('span');
   // Set a click handler on the spans (so we know when they're clicked)
-  $spans.on('click',spanClicked);
+  $spans.on('click', spanClicked);
+
+  // Add the mouseover event for the secrets hidden in the page
+  $('.secret').on('mouseover', secretOver);
+
   // Set an interval of 500 milliseconds to update the state of the page
-  setInterval(update,500);
+  setInterval(update, 500);
+
 };
 
 // spanClicked()
@@ -60,23 +67,14 @@ function updateSpan() {
   }
 }
 
-// A version using anonymous functions:
-
-// $(document).ready(function () {
-//   $spans = $('span');
+// secretOver()
 //
-//   $spans.on('click',function () {
-//     $(this).removeClass('revealed');
-//     $(this).addClass('redacted');
-//   });
-//
-//   setInterval(function () {
-//     $spans.each(function () {
-//       let r = Math.random();
-//       if (r < 0.1) {
-//         $(this).removeClass('redacted');
-//         $(this).addClass('revealed');
-//       }
-//     });
-//   },500);
-// });
+// Selects the number for the counter in the HTML page (span ID 'secret-count'),
+// then removes its original class 'secret' to change it to 'found'. All this,
+// to end the event with .off to let the event unfold only one time per secret.
+function secretOver() {
+  $("#secret-count").html(++counter);
+  $(this).removeClass('secret');
+  $(this).addClass('found');
+  $(this).off('mouseover');
+}
