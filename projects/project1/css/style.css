@@ -20,9 +20,9 @@ Loading screen
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: #654ea3;
-  background: -webkit-linear-gradient(to right, #eaafc8, #654ea3);
-  background: linear-gradient(to right, #eaafc8, #654ea3);
+  background: #fffc00;
+  background: -webkit-linear-gradient(to bottom, #ffffff, #fffc00);
+  background: linear-gradient(to bottom, #ffffff, #fffc00);
   animation: loading 2.5s 2 forwards ease-in-out;
   animation-timing-function: cubic-bezier(.5, 0, .5, 1);
 }
@@ -110,4 +110,163 @@ Loading screen
   100% {
     opacity: 1;
   }
+}
+
+/*********************************************
+Game menu UI
+**********************************************/
+.menu-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.menu-item:nth-child(1) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.menu-item:nth-child(2) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.menu-item:nth-child(3) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.menu-item:nth-child(4) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+.menu-item:nth-child(5) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  align-self: auto;
+}
+
+/*********************************************
+How to play modal
+**********************************************/
+html body #modal {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+html body #modal:hover:before {
+  transform: scale(1.5);
+}
+
+html body #modal:focus, html body #modal:target {
+  transform: scale(1);
+}
+
+html body #modal section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 25px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+div.controls a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #aaa;
+}
+
+div.controls a:hover, div.controls a:focus {
+  color: #777;
+}
+
+div.controls a:active {
+  color: #666;
+}
+
+div button {
+  margin-left: 50px;
+}
+
+.button {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+}
+
+.button:hover, .button:focus {
+  outline: none;
+  background-color: #e5892e;
+}
+
+.button:active {
+  background-color: #cc7a29;
 }
