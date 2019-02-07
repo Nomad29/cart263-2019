@@ -223,13 +223,13 @@ html body #modal:focus, html body #modal:target {
 
 html body #modal section {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 400px;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 25px;
   box-sizing: border-box;
   background-color: #fff;
-  transform: translate(-50%, -50%);
+  height: 100%;
 }
 
 div.controls a {
@@ -269,4 +269,112 @@ div button {
 
 .button:active {
   background-color: #cc7a29;
+}
+
+/*********************************************
+Game elements
+**********************************************/
+.game-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: -webkit-fill-available;
+  position: absolute;
+  margin: 0 auto;
+  padding: 0;
+  background: #f6f6f6;
+}
+
+.game-item:nth-child(1) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-game-item-align: auto;
+  align-self: auto;
+  background-image: url(../assets/images/clouds.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat-x;
+  width: 100%;
+  height: -webkit-fill-available;
+  background-position: bottom;
+}
+
+.game-item:nth-child(2) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: center;
+  -ms-game-item-align: center;
+  align-self: center;
+  background-image: url(../assets/images/mountains.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: -webkit-fill-available;
+  background-position: bottom;
+  position: relative;
+}
+
+.game-item:nth-child(3) {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-align-self: auto;
+  -ms-game-item-align: auto;
+  align-self: auto;
+  background: linear-gradient(to left, #b8cc73 60%, #76882d 60%);
+  width: 100%;
+  height: -webkit-fill-available;
+  background-position: bottom;
+}
+
+.grounds-image {
+  background-image: url(../assets/images/grounds.svg);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.house1 {
+  width: auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.house2 {
+  width: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
