@@ -43,6 +43,7 @@ function setup() {
   // Hide it until called
   $poop.hide();
   $poop.show(9000);
+  wasting();
 
   pantingSFX.loop = true;
 
@@ -100,4 +101,15 @@ function opening() {
       $door.promise().done('src', 'assets/images/house2-open.svg');
     }, 500);
   }
+}
+
+// wasting()
+//
+function wasting() {
+  $("html").keydown(function() {
+    $("#poop").attr('src', 'assets/images/blank.png');
+  });
+  $("html").keyup(function() {
+    $("#poop").attr('src', 'assets/images/poop.svg');
+  });
 }
