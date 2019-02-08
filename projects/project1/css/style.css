@@ -299,6 +299,7 @@ Game elements
   margin: 0 auto;
   padding: 0;
   background: #f6f6f6;
+  overflow: hidden;
 }
 
 .game-item:nth-child(1) {
@@ -365,16 +366,41 @@ Game elements
   height: 100%;
 }
 
-.house1 {
+#house1 {
   width: auto;
   position: absolute;
   left: 0;
   bottom: 0;
 }
 
-.house2 {
+#house2 {
   width: auto;
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+#dog {
+  width: auto;
+  height: 85px;
+  float: right;
+  right: 3vw;
+  margin-top:-50px;
+}
+
+#poop {
+  width: auto;
+  height: 25px;
+  float: left;
+  left:20%;
+  position: absolute;
+}
+
+.moving {
+  width: auto;
+  height: 100px;
+  float: right;
+  padding: 3vmax;
+  transform:translate(100%);
+  transform-origin: 20% 20%;
 }
