@@ -1,14 +1,6 @@
 Sisyphus everyday – A plan to go mad
-<<<<<<< HEAD
 by Alexandra Melançon
 ==============
-
-=======
-==============
-
-Alexandra Melançon
---------------
->>>>>>> e4f2510b14023666f84fae83900bd42c0574e2fc
 
 For mere mortals, Sisyphus does not represent happiness for everybody. Even if we should believe, by the words of Albert Camus, that king Sisyphus is happy of his endless and divine punishment as well as the futility of it – not everybody on earth will be in the same state of mind as him. Some people could be pleased with repetitive situations like this, but others – like me – do not find the same pleasure in Sisyphean tasks.
 
