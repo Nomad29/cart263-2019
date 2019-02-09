@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
   <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>Scoopy's Frenzy</title>
   <meta name="author" content="Alexandra Melançon" />
 
@@ -16,26 +16,36 @@
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+
 </head>
 
 <body>
 
+  <audio type="audio/mpeg" loop="loop" autoplay="autoplay">
+    <source src="assets/sounds/intro.mp3" type="audio/mp3" />
+  </audio>
+
   <!-- Begin loading screen -->
-  <p class="loading-text">Loading</p>
+  <p class="loading-text"><img src="assets/images/loading.png" style="height: 3em;"></p>
   <div class="loader"></div>
   <!-- End loading screen -->
 
   <div class="wrapper">
     <div class="menu-container">
-      <div class="menu-item">Logo</div>
-      <div class="menu-item">Catch phrase</div>
-      <div class="menu-item">Game description</div>
+      <div class="menu-item"><img src="assets/images/logo.svg" style="height: auto;"></div>
+      <div class="menu-item">Beware: Scoopy the dog is on duty!</div>
+      <div class="menu-item">Keep the neighbors' dog from pooping on your front yard by bringing him back in his house and clean up his mess.</div>
+      <div class="menu-item" style="margin-bottom: 0.7em;"><a href="game.html" class="button" style="border: 2px solid #db6262;">Play the game</a></div>
       <div class="menu-item">
         <div>
           <a href="#modal" class="button">How to play</a>
         </div>
       </div>
-      <div class="menu-item"><a href="game.html">Start game button</a></div>
     </div>
   </div>
 
@@ -43,18 +53,30 @@
   <div id="modal">
     <a href="#"></a>
     <section>
-      <div>
-        Test
+      <div class="instructions">
+
+        <div class="instru-container">
+          <div class="instru-item">
+            <img src="assets/images/click.svg" style="width: 60%;height: auto;">
+            <h3>Bring the dog home</h3>
+            <p>To do so, fetch the dog by left clicking with your mouse then hold until you dragged him to his home on the right side of the screen.</p>
+          </div>
+          <div class="instru-item">
+            <img src="assets/images/press.svg" style="width: 60%;height: auto;">
+            <h3>Clean the dog's mess</h3>
+            <p>For this step, cleanse the dog waste by pressing any key on your keyboard.</p>
+          </div>
+        </div>
+
       </div>
       <div class="controls">
-        <button class="button">
+        <button class="button" style="line-height: 1em;height: 2.3em;;margin-right: 2em;">
           <a href="game.html">Play the game</a>
         </button>
-        <a href="#">Go back</a>
+        <a href="#" class="button" style="border: 2px solid #db6262;">Go back</a>
       </div>
     </section>
   </div>
-
 
 </body>
 

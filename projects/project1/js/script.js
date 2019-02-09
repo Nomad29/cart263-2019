@@ -30,9 +30,8 @@ function setup() {
 
   // Get the dog element from the page
   $dog = $('#dog');
-  $dog.animate({
-    marginRight: "75%",
-  }, 7000);
+  // Function for the dog animation of the beginning
+  doggie();
   // Make it draggable
   $dog.draggable({
     axis: 'x',
@@ -42,7 +41,8 @@ function setup() {
   $poop = $('#poop');
   // Hide it until called
   $poop.hide();
-  $poop.show(9000);
+  $poop.show(12500);
+  // Function for the cleaning the waste
   wasting();
 
   pantingSFX.loop = true;
@@ -50,30 +50,26 @@ function setup() {
   // Start the dog panting when interacted with
   $dog.on({
     mousedown: function() {
-      pantingSFX.play();
       $(this).animate({
-        marginRight: "-=5%",
-      }, 300);
+        marginRight: "+=3%",
+      }, 100);
+      pantingSFX.play();
+        $("#poop").attr('src', 'assets/images/poop.svg');
     },
     // Stop the dog panting when not interacted with anymore
     mouseout: function() {
       $(this).animate({
-        marginRight: "+=5%",
-      }, 8000);
+        marginRight: "-=5%",
+      }, 100);
       pantingSFX.pause();
     },
-    // Stop the dog suddenly for a fake stress reaction
-    click: function() {
-      $(this).animate({
-        marginLeft: "-=5%",
-      }, 100);
-    }
   });
 
 }
 
 // dogDropped(event,ui)
 //
+// Sets opening() when the dog image is dropped on its house. It also play the door sound when // dropped.
 function dogDropped(event, ui) {
   $(this).attr('src', 'assets/images/house2-open.svg');
   pantingSFX.pause();
@@ -85,6 +81,8 @@ function dogDropped(event, ui) {
 
 // opening()
 //
+// When the dog is dropped on its house, the door open.
+// However, the door open again instantly and  the dog also...
 function opening() {
   // Checks if the image if the door is open
   if ($door.attr('src') === 'assets/images/house2-open.svg') {
@@ -98,6 +96,9 @@ function opening() {
   } else {
     setTimeout(function(event, ui) {
       $dog.show();
+      $dog.animate({
+        marginRight: "+=15%",
+      }, 5000);
       $door.promise().done('src', 'assets/images/house2-open.svg');
     }, 500);
   }
@@ -105,11 +106,16 @@ function opening() {
 
 // wasting()
 //
+// Let the user press any key to clean an unstoppable canine waste machine that
+// will not disapear
 function wasting() {
   $("html").keydown(function() {
     $("#poop").attr('src', 'assets/images/blank.png');
   });
-  $("html").keyup(function() {
-    $("#poop").attr('src', 'assets/images/poop.svg');
-  });
+}
+
+function doggie() {
+  $dog.animate({
+    marginRight: "75%",
+  }, 6000);
 }
