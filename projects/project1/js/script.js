@@ -41,7 +41,7 @@ function setup() {
   $poop = $('#poop');
   // Hide it until called
   $poop.hide();
-  $poop.show(12500);
+  $poop.show(12000);
   // Function for the cleaning the waste
   wasting();
 
@@ -54,12 +54,12 @@ function setup() {
         marginRight: "+=3%",
       }, 100);
       pantingSFX.play();
-        $("#poop").attr('src', 'assets/images/poop.svg');
+      $("#poop").attr('src', 'assets/images/poop.svg');
     },
     // Stop the dog panting when not interacted with anymore
     mouseout: function() {
       $(this).animate({
-        marginRight: "-=5%",
+        marginRight: "-=1%",
       }, 100);
       pantingSFX.pause();
     },
@@ -97,8 +97,8 @@ function opening() {
     setTimeout(function(event, ui) {
       $dog.show();
       $dog.animate({
-        marginRight: "+=15%",
-      }, 5000);
+        marginRight: "+=30%",
+      }, 10000);
       $door.promise().done('src', 'assets/images/house2-open.svg');
     }, 500);
   }
@@ -112,10 +112,13 @@ function wasting() {
   $("html").keydown(function() {
     $("#poop").attr('src', 'assets/images/blank.png');
   });
+  $("html").keyup(function() {
+    alert("Oh noes! It's futile -- the dog is coming back!");
+  });
 }
 
 function doggie() {
   $dog.animate({
     marginRight: "75%",
-  }, 6000);
+  }, 5000);
 }
