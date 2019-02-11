@@ -410,6 +410,7 @@ Game elements
   -webkit-align-self: auto;
   -ms-game-item-align: auto;
   align-self: auto;
+  animation: bg2 45s infinite linear;
   background-image: url(../assets/images/clouds.svg);
   background-position: center;
   background-size: contain;
@@ -417,6 +418,16 @@ Game elements
   width: 100%;
   height: -webkit-fill-available;
   background-position: bottom;
+}
+
+@keyframes bg2 {
+  0% {
+    background-position: 0 center;
+  }
+
+  100% {
+    background-position: 100% center;
+  }
 }
 
 .game-item:nth-child(2) {
