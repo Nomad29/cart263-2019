@@ -41,7 +41,6 @@ function setup() {
   $poop = $('#poop');
   // Hide it until called
   $poop.hide();
-  $poop.show(12000);
   // Function for the cleaning the waste
   wasting();
 
@@ -54,6 +53,7 @@ function setup() {
         marginRight: "+=3%",
       }, 100);
       pantingSFX.play();
+      $poop.show();
       $("#poop").attr('src', 'assets/images/poop.svg');
     },
     // Stop the dog panting when not interacted with anymore
@@ -111,9 +111,6 @@ function opening() {
 function wasting() {
   $("html").keydown(function() {
     $("#poop").attr('src', 'assets/images/blank.png');
-  });
-  $("html").keyup(function() {
-    alert("Oh noes! It's futile -- the dog is coming back!");
   });
 }
 
