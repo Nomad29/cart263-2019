@@ -17,6 +17,7 @@ Chewing: https://freesound.org/people/InspectorJ/sounds/412068/
 // Sound effects for the experience
 let buzzSFX = new Audio("assets/sounds/buzz.mp3");
 let crunchSFX = new Audio("assets/sounds/crunch.wav");
+let grossSFX = new Audio("assets/sounds/gross.mp3");
 
 // Variable to hold our three key elements
 let $mouth;
@@ -45,7 +46,10 @@ function setup() {
   $tomato = $('#tomato');
   // Make it draggable
   $tomato.draggable({
-    revert: true
+    revert: true,
+    start: function(event, ui) {
+      grossSFX.play();
+     }
   });
 
   // Start up the buzzing of the fly
