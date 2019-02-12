@@ -3,3 +3,26 @@
 This is the style file for this project.
 
 **********************************************/
+body {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  display: flex;
+}
+
+#mouth {
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index:1;
+}
+
+#fly {
+  margin: auto;
+  position: absolute !important;
+  z-index: 2;
+}
