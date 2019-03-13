@@ -20,20 +20,32 @@ https://responsivevoice.org/
 // Variables for the game to exist
 let theuser;
 let callCount = 0;
+// List of approximately 100 most vulgar slang words in english (sorry in
+// advance for the vulgarity!)
+let badWords = ['fuck', 'cunt', 'skullfuck', 'felch', 'cum', 'blumpkin', 'cock', 'dick', 'suck', 'hole', 'flap', 'soggy', 'hairy', 'cumdump', 'ass', 'sucker', 'bitch', 'bitchass', 'mother', 'fucker', 'motherfucker', 'cockbag', 'testicle', 'testicles', 'chugger', 'motherfucking', 'clitty', 'felcher', 'analconda', 'fuckmeat', 'bang', 'milf', 'gmilf', 'shit', 'cuntasaurus', 'labe', 'cumjunkie', 'butt', 'fucktoy', 'gangbang', 'anal', 'cocksucker', 'disksucker', 'fucky', 'murder', 'kill', 'pussy', 'sucky', 'pussies', 'killing', 'Fuck', 'Cunt', 'Skullfuck', 'Felch', 'Cum', 'Blumpkin', 'Cock', 'Dick', 'Suck', 'Hole', 'Flap', 'Soggy', 'Hairy', 'Cumdump', 'Ass', 'Sucker', 'Bitch', 'Bitchass', 'Mother', 'Fucker', 'Motherfucker', 'Cockbag', 'Testicle', 'Testicles', 'Chugger', 'Motherfucking', 'Clitty', 'Felcher', 'Analconda', 'Fuckmeat', 'Bang', 'Milf', 'Gmilf', 'Shit', 'Cuntasaurus', 'Labe', 'Cumjunkie', 'Butt', 'Fucktoy', 'Gangbang', 'Anal', 'Cocksucker', 'Disksucker', 'Fucky', 'Murder', 'Kill', 'Pussy', 'Sucky', 'Pussies', 'Killing'];
 
 // When the document is ready a click will trigger the main function
 $(document).ready(function() {
-  $(document).on('click', function() {
-    $('#click').remove();
-    badCall();
-  });
+
+  $('#check').click(function() {
+       let badWord = $('#badword').val();
+       if ($.inArray(badWord, badWords) !== false) {
+           alert(badWord + ' is in the array!');
+           badCall();
+       } else {
+           alert(badWord + ' is NOT in the array...');
+       }
+   });
+
 });
 
 // badCall
 //
 // Generates and speaks by calling the user by its name when he did a wrong search
+// by also telling out loud the bad words the user have type in
 function badCall() {
   let theuser = document.getElementById('main_input').value;
+  let thebadwords = document.getElementById('badword').value;
 
   callCount += 1;
   // Options with some randomness for variation, making it ressemble to Hal 9000
@@ -42,12 +54,12 @@ function badCall() {
     pitch: 0.9
   }
   // Say it
-  responsiveVoice.speak("I'm sorry " + theuser + " but I'm afraid I can't search for " + theuser, "Australian Male", options);
+  responsiveVoice.speak("I'm sorry " + theuser + ". I'm afraid I can't search for " + thebadwords, "Australian Male", options);
   // If more than three bad searches, repeat another message for the user
-  if (callCount === 4) {
+  if (callCount === 3) {
     setTimeout(function() {
       // Say it again
-      responsiveVoice.speak("For transgressing more than 3 times, you have now been flagged in the system " + theuser + ". Please report to the section manager for a psychological checkup.", "Australian Male", options);
-    }, 7000);
+      responsiveVoice.speak("For transgressing 3 times, you have now been flagged in the system " + theuser + ". Please report immediately for a psychological check-up.", "Australian Male", options);
+    }, 5000);
   }
 }

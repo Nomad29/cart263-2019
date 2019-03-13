@@ -2,7 +2,7 @@
 Create a game with an AI (similar to Hal), that's been created to assist humans on the internet. Its purpose is simple: keep the humans from searching or creating out of place's stuff.
 
 0. Loading page (with a message:
-Please accept the use of your microphone and increase the volume to fully benefit from the experience.)
+Please increase the volume of your machine to fully benefit from the experience.)
 
 1. Beginning could be:
 ''Hello fellow human,
@@ -22,7 +22,7 @@ Please click the button below, to access the web browser.''
 *After pressing Continue button*
 
  2.2 *Shows a box with example of appropriate searches on the interface.*
-Try different things to 'search'. If one of the words used matches the innapropriately universal terms or is not in the examples of approriate searches, BLACKBOX will repeat what you entered out loud on your speakers, (ex: I'm sorry 'Dave-nametowrite', but I'm afraid I can't search for 'whathasbeensearched'). 
+Try different things to 'search'. If one of the words used matches the innapropriately universal terms or is not in the examples of approriate searches, BLACKBOX will repeat what you entered out loud on your speakers, (ex: "I'm sorry " + theuser + ". I'm afraid I can't search for "whathasbeensearched"). 
 If the search did not find anything, then BLACKBOX will simply congrats you on being a good human and prompt you to do another search.
 
 UI and game should contain a box for "appropriate searches" and another box with the input to write down your search. If the search does not trigger an innappropriate search, or does not match already made searches, the program will then say that it didn't found anything to the request.
