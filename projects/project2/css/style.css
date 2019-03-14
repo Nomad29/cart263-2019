@@ -16,3 +16,35 @@ Headers and Titles: "Poppins";
 /* ==============================
    0. Common styles
 ============================== */
+.loader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('http://www.downgraf.com/wp-content/uploads/2014/09/01-progress.gif?e44397') 50% 50% no-repeat rgb(249,249,249);
+  display:flex;
+}
+
+.intro {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9998;
+	background-color: white;
+  display:flex;
+}
+
+.login {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9997;
+	background-color: white;
+  display:flex;
+}

@@ -28,7 +28,27 @@ let badWords = new Array('fuck', 'cunt', 'skullfuck', 'felch', 'cum', 'blumpkin'
 $(document).ready(setup);
 
 function setup() {
+
   //Calls the loading screen
+  setTimeout(function() {
+    $('.loader').hide();
+  }, 5000);
+
+}
+
+// continueTo
+//
+// Let the user continue foward after reading the introduction
+function continueTo() {
+  $('.intro').hide();
+}
+
+// loginIn
+//
+// Let the user continue foward after reading the introduction
+function loginIn() {
+  $('.intro').hide();
+  $('.login').hide();
 }
 
 // checkUp
