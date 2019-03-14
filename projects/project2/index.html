@@ -21,6 +21,7 @@
 
   <!-- My script(s) -->
   <script src="js/script.js"></script>
+  <script src="js/avatar.js"></script>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400|Poppins:300,400,500,700" rel="stylesheet">
@@ -32,18 +33,109 @@
 
 <body>
 
-  <div class="loader"></div>
+  <div class="loader">
+    <div class="loadingContent">
+      <h1>Opening the Web browser for first time use</h1>
+      <h3>Please <span style="color: #086bff;">increase the volume</span> of your machine to hear the instructions</h3> <img class="loadingImg" src="assets/images/loading.gif">
+    </div>
+  </div>
 
-  <div class="intro"><input id="continue" onClick="continueTo()" type="button" value="Continue"></div>
+  <div class="intro">
+    <div class="left_ui">
+      <!-- Blackbox's avatar -->
+      <div class="avatar">
+        <div id="cube-holder2">
+          <div class="face2" id="face2-top"></div>
+          <div class="face2" id="face2-front"></div>
+          <div class="face2" id="face2-right"></div>
+          <div class="face2" id="face2-back"></div>
+          <div class="face2" id="face2-left"></div>
+          <div class="face2" id="face2-bottom"></div>
+        </div>
+        <div id="cube-holder">
+          <div class="face" id="face-top"></div>
+          <div class="face" id="face-front"></div>
+          <div class="face" id="face-right"></div>
+          <div class="face" id="face-back"></div>
+          <div class="face" id="face-left"></div>
+          <div class="face" id="face-bottom"></div>
+        </div>
+      </div>
 
-  <div class="login"><input id="main_input" placeholder="Type in your name here" />
-    <input id="continue" onClick="loginIn()" type="button" value="Open"></div>
+      <div style="width:100%;position: absolute;left:0;right:0;top:0;bottom: 0px;display: flex;">
+        <div class="intro-container">
+
+          <span class="text-animated-one">
+            <p class="phrase1">Hello fellow human, </p>
+            <p class="phrase2">My designation is Blackbox</p>
+          </span>
+
+          <span class="text-animated-two">
+            <p class="phrase1">I am the superintendent </p>
+            <p class="phrase2">in charge of overseeing this web browser</p>
+          </span>
+          <span class="text-animated-three">
+            <p class="phrase1">Please click the button below, </p>
+            <p class="phrase2">to access the web browser and connect your account</p>
+          </span>
+          <div style="width:100%;position: absolute;bottom: 0px;">
+            <input id="continue" class="text-animated-three2" onClick="continueTo()" type="button" value="CONTINUE WITH LOGIN">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="login">
+    <div class="left_ui"></div>
+    <div class="right_ui">
+
+      <div class="avatar2">
+        <div id="cube-holder4">
+          <div class="face4" id="face4-top"></div>
+          <div class="face4" id="face4-front"></div>
+          <div class="face4" id="face4-right"></div>
+          <div class="face4" id="face4-back"></div>
+          <div class="face4" id="face4-left"></div>
+          <div class="face4" id="face4-bottom"></div>
+        </div>
+        <div id="cube-holder3">
+          <div class="face3" id="face3-top"></div>
+          <div class="face3" id="face3-front"></div>
+          <div class="face3" id="face3-right"></div>
+          <div class="face3" id="face3-back"></div>
+          <div class="face3" id="face3-left"></div>
+          <div class="face3" id="face3-bottom"></div>
+        </div>
+      </div>
+
+      <div class="intro-container2">
+
+        <span class="text-animated-one2">
+          <p class="phrase1" style="color: #423b55;">Create your account </p>
+          <p class="phrase2" style="color: #212121;">Please enter your name below</p>
+        </span>
+
+      </div>
+      <div style="width:100%;position:relative;bottom:0px;display:flex;">
+      <div style="width: 30%;position:absolute;left: 0;right: 0;top: 0;bottom: 0;margin: 0 auto;">
+        <input id="main_input" class="loginInput" placeholder="Enter your name here">
+        <input id="continue2" class="loginButton" onClick="loginIn()" type="button" value="SIGN IN">
+      <p class="importantM">* Important: With regard to the new regulations governing the Internet, every attempt to search for inappropriate content on the web browser will be blocked, publicly played and retained in your personnal file.</p>
+    </div>
+    </div>
+    </div>
+  </div>
 
 
-  <h2>The Normality Simulator</h2>
+  <div class="left_ui2"></div>
+  <div class="right_ui2">
 
-  <input id="searchword" type="text">
-  <input id="checkup" onClick="checkUp()" type="button" value="Search">
+    <input id="searchword" type="text">
+    <input id="checkup" onClick="checkUp()" type="button" value="Search">
+  </div>
 
 
 </body>

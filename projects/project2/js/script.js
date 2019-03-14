@@ -32,7 +32,7 @@ function setup() {
   //Calls the loading screen
   setTimeout(function() {
     $('.loader').hide();
-  }, 5000);
+  }, 6000);
 
 }
 
@@ -41,6 +41,7 @@ function setup() {
 // Let the user continue foward after reading the introduction
 function continueTo() {
   $('.intro').hide();
+  $(".left_ui").animate({width: "10%"}, 1000);
 }
 
 // loginIn
