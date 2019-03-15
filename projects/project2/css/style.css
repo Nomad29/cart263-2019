@@ -667,7 +667,7 @@ h3 {
 .importantM {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
-  font-size: 0.75vmax;
+  font-size: 0.8vmax;
   color: #212121;
 }
 
@@ -763,6 +763,7 @@ h3 {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2.5vmax;
+  margin-bottom: 2.5vmax;
 }
 
 .example-item {
