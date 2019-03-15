@@ -22,7 +22,7 @@ let theuser;
 let callCount = 0;
 // List of approximately 100 most vulgar slang words in english (sorry in
 // advance for the vulgarity!)
-let badWords = new Array('fuck', 'cunt', 'skullfuck', 'felch', 'cum', 'blumpkin', 'cock', 'dick', 'suck', 'hole', 'flap', 'soggy', 'hairy', 'cumdump', 'ass', 'sucker', 'bitch', 'bitchass', 'mother', 'fucker', 'motherfucker', 'cockbag', 'testicle', 'testicles', 'chugger', 'motherfucking', 'clitty', 'felcher', 'analconda', 'fuckmeat', 'bang', 'milf', 'gmilf', 'shit', 'cuntasaurus', 'labe', 'cumjunkie', 'butt', 'fucktoy', 'gangbang', 'anal', 'cocksucker', 'disksucker', 'fucky', 'murder', 'kill', 'pussy', 'sucky', 'pussies', 'killing', 'asshole', 'death');
+let badWords = new Array('fuck', 'cunt', 'skullfuck', 'felch', 'cum', 'blumpkin', 'cock', 'dick', 'suck', 'hole', 'flap', 'soggy', 'hairy', 'cumdump', 'ass', 'sucker', 'bitch', 'bitchass', 'mother', 'fucker', 'motherfucker', 'cockbag', 'testicle', 'testicles', 'chugger', 'motherfucking', 'clitty', 'felcher', 'analconda', 'fuckmeat', 'bang', 'milf', 'gmilf', 'shit', 'cuntasaurus', 'labe', 'cumjunkie', 'butt', 'fucktoy', 'gangbang', 'anal', 'cocksucker', 'disksucker', 'fucky', 'murder', 'kill', 'pussy', 'sucky', 'pussies', 'killing', 'asshole', 'death', 'porn', 'dead');
 
 
 $(document).ready(setup);
@@ -34,6 +34,9 @@ function setup() {
     $('.loader').hide();
   }, 6000);
 
+  $('#browser').hide();
+  $('#examples').show();
+
 }
 
 // continueTo
@@ -41,7 +44,9 @@ function setup() {
 // Let the user continue foward after reading the introduction
 function continueTo() {
   $('.intro').hide();
-  $(".left_ui").animate({width: "10%"}, 1000);
+  $('.left_ui').animate({
+    width: "10%"
+  }, 1000);
 }
 
 // loginIn
@@ -58,20 +63,27 @@ function loginIn() {
 function checkUp() {
   let searchWord = $('#searchword').val();
 
+  // Put the error counter at zero
   let error = 0;
+  // Search for one of the bad words in the Array above
   for (let i = 0; i < badWords.length; i++) {
     let val = badWords[i];
+    // If a bad word is detected, +1 to the error counter
     if ((searchWord.toLowerCase()).indexOf(val.toString()) > -1) {
       error = error + 1;
     }
   }
-
+  // If there is a inapropriate word(s) detected
   if (error > 0) {
     badCall();
     return false;
 
-  } else {
-    location.href = 'https://www.google.com/search?q=' + searchWord;
+  }
+  // If there is no inapropriate word(s) detected
+  else {
+    $('#examples').hide();
+    $('#browser').show();
+    $('#frame').attr('src', "https://www.bing.com/search?q=" + searchWord);
   }
 }
 
@@ -81,8 +93,9 @@ function checkUp() {
 // Generates and speaks by calling the user by its name when he did a wrong search
 // by also telling out loud the bad words the user have type in
 function badCall() {
+  // Variable for the user's name
   let theuser = document.getElementById('main_input').value;
-
+  // Add 1 each time the user write down a bad words from the Array
   callCount += 1;
   // Options with some randomness for variation, making it ressemble to Hal 9000
   let options = {
@@ -94,7 +107,7 @@ function badCall() {
   // If more than three bad searches, repeat another message for the user
   if (callCount === 3) {
     setTimeout(function() {
-      // Say it again
+      // Say another message
       responsiveVoice.speak("For transgressing 3 times, you have now been flagged in the system " + theuser + ". Please report immediately for a psychological check-up.", "Australian Male", options);
     }, 5000);
   }

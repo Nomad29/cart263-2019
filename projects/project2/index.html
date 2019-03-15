@@ -120,12 +120,12 @@
 
       </div>
       <div style="width:100%;position:relative;bottom:0px;display:flex;">
-      <div style="width: 30%;position:absolute;left: 0;right: 0;top: 0;bottom: 0;margin: 0 auto;">
-        <input id="main_input" class="loginInput" placeholder="Enter your name here">
-        <input id="continue2" class="loginButton" onClick="loginIn()" type="button" value="SIGN IN">
-      <p class="importantM">* Important: With regard to the new regulations governing the Internet, every attempt to search for inappropriate content on the web browser will be blocked, publicly played and retained in your personnal file.</p>
-    </div>
-    </div>
+        <div style="width: 30%;position:absolute;left: 0;right: 0;top: 0;bottom: 0;margin: 0 auto;">
+          <input id="main_input" class="loginInput" placeholder="Enter your name here">
+          <input id="continue2" class="loginButton" onClick="loginIn()" type="button" value="SIGN IN">
+          <p class="importantM">* Important: With regard to the new regulations governing the Internet, every attempt to search for inappropriate content on the web browser will be blocked, publicly played and retained in your personnal file.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -133,10 +133,155 @@
   <div class="left_ui2"></div>
   <div class="right_ui2">
 
-    <input id="searchword" type="text">
-    <input id="checkup" onClick="checkUp()" type="button" value="Search">
-  </div>
+    <div class="flex-container">
 
+      <div class="flex-item" style="width: 100%;height: 7%;z-index: 9995;">
+        <img id="logo" src="assets/images/logo.PNG">
+        <input id="searchword" class="searchInput" type="text" placeholder="Search the Web">
+        <input id="checkup" class="searchButton" onClick="checkUp()" type="button" value="SEARCH">
+      </div>
+
+      <div id="examples" class="flex-item2" style="height:83%;width: 85%;padding-top: 3.5%;padding-left: 7.5%;padding-right: 7.5%;">
+
+        <p class="phrase2" style="color: #828282;text-align: left;font-weight: 500;font-size: 1.1vmax;padding: 0;margin: 0;">Examples of good searches for you to make</p>
+        <div style="width:100%;border-bottom: 1px solid #dddddd;padding: 0;height: auto;position: absolute;left: 0;"></div>
+
+        <div class="example-container shadow-top-container">
+
+          <div class="example-item">
+            <div class="logo-image"><img src="http://www.wallpapermaiden.com/image/2018/07/11/cute-kittens-sleeping-cats-animal-22125-resized.jpg"></div>
+
+            <div class="example-name">Cute kittens</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://www.animal-fute.com/tl_files/editeur/photo2/Race-de-chien/jack-russel-chien.jpg"></div>
+
+            <div class="example-name">Jack Russel Terrier</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://media.mnn.com/assets/images/2014/09/elephant-painting-canvas.jpg"></div>
+
+            <div class="example-name">Painting Elephant</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://d2gk7xgygi98cy.cloudfront.net/4999-3-large.jpg"></div>
+
+            <div class="example-name">Vanilla cupcakes</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj2_HCm_jUCqlIiBGGZ5rwq38np8f7zWUII6dWvrTVo6lrxNUL"></div>
+
+            <div class="example-name">How to play basketball</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="http://upload.wikimedia.org/wikipedia/commons/6/64/Wasserball.jpg"></div>
+
+            <div class="example-name">Water polo competition</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://thumbs.gfycat.com/NextTightAmericanpainthorse-mobile.jpg"></div>
+
+            <div class="example-name">2D Video games</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://3v718laqyo244ii5v20dg6ff-wpengine.netdna-ssl.com/wp-content/uploads/2017/03/Shoes-inline.jpg"></div>
+
+            <div class="example-name">Running shoes</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://www.pedestrian.tv/content/uploads/2018/12/friends-hs-637x397.jpg"></div>
+
+            <div class="example-name">Friends TV show</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://socialunderground.com/wp-content/uploads/2018/07/feature_astro_moon.jpg"></div>
+
+            <div class="example-name">Astronaut on the moon</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/593f0ca16b8f5b6f0aace160/1497304227697/?format=2500w"></div>
+
+            <div class="example-name">Popular Marvel movies</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://animals.sandiegozoo.org/sites/default/files/2016-10/animals_hero_cockatoo.jpg"></div>
+
+            <div class="example-name">Cockatoo bird</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="http://www.tracydeephotography.com/wp-content/uploads/the-hammerheads-hammerhead-shark-text-images-music-video.jpg"></div>
+
+            <div class="example-name">Hammerhead shark</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://img.grouponcdn.com/deal/2vpUNSiEmhZ731fbbVMhyN/new-700x420/v1/c700x420.jpg"></div>
+
+            <div class="example-name">Comic books</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjbnYKmwUAeIXGzgNjcOAUSgzCXBBmfimQNf61D7Is83MwJ3Y-5g"></div>
+
+            <div class="example-name">Ocean and beach</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://rog.asus.com/media/1546852826561.jpg"></div>
+
+            <div class="example-name">Best laptops of 2019</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://www.yellowstonepark.com/.image/t_share/MTU0ODMzMDA2MjMyNjEwODAx/ys-grand-prismatic_tamtroyhendrickson_700.jpg"></div>
+
+            <div class="example-name">Yellowstone park</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="http://www.hamsterhelper.com/wp-content/uploads/2016/04/26193682065_d6a4956378_b-1024x739.jpg"></div>
+
+            <div class="example-name">Syrian hamsters</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="https://i.ytimg.com/vi/m0A9oEJd0FI/maxresdefault.jpg"></div>
+
+            <div class="example-name">Week forecast</div>
+          </div>
+
+          <div class="example-item">
+            <div class="logo-image"><img src="http://static-20.sinclairstoryline.com/resources/media/2fbd3cc5-6bd8-4ede-a6e8-e044226e0357-large16x9_419Tornado.jpg?1492612924208"></div>
+
+            <div class="example-name">Tornadoes</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="browser" class="flex-item2" style="height:95%;width:100%;border:none;">
+
+        <div style="width: 100%;height: 85px;background-color: white;top: 5%;position: absolute;z-index: 9994;"></div>
+        <iframe id="frame" src="" width="100%" height="95%" style="bottom: 0px;position: absolute;left: 0;border:none;">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 
