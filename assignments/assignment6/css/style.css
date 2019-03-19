@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-size: 4em;
+  font-size: 4vmax;
   font-family: 'Libre Baskerville', serif;
   font-weight: 700;
   color: white;
