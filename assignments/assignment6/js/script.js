@@ -16,7 +16,7 @@ http://rednoise.org/rita/index.html
 
 */
 
-let vowels = "aeiou";
+let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
 $(document).ready(function() {
 
@@ -61,10 +61,26 @@ function gotData(data) {
   // Same again for supernatural_creatures
   let supernaturalCreature = getRandomElement(data.supernatural_creatures);
 
+  // Look for the first letter of the Supernatural Creature and change the article if need be
+  let articleSupernaturalCreature = 'a';
+  for (let i = 0; i < vowels.length; i++) {
+    if (supernaturalCreature.toLowerCase().charAt(0) === vowels[i]) {
+      articleSupernaturalCreature = 'an';
+    }
+  }
+
+  // Look for the first letter of the room and change the article if need be
+  let articleRoom = 'a';
+  for (let i = 0; i < vowels.length; i++) {
+    if (room.toLowerCase().charAt(0) === vowels[i]) {
+      articleRoom = 'an';
+    }
+  }
+
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like a  ${supernaturalCreature} ${cat} in a ${room} with ${deity}.`;
+  let description = `${condiment} ${verb} like ${articleSupernaturalCreature} ${supernaturalCreature} ${cat} in ${articleRoom} ${room} with ${deity}.`;
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
