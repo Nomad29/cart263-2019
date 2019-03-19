@@ -20,23 +20,23 @@ let vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
 
 $(document).ready(function() {
 
-  // The first thing we need to do is load the data we're going
-  // to use to get random words.
-  //
-  // For that we use jQuery's .getJSON() function, which we give
-  // the location of the file, and a function to call when the data
-  // is available...
-  $.getJSON('data/data.json', gotData);
+  $.getJSON('data/data.json', dataLoaded);
+
 });
 
-// gotData (data)
+// Click function
+//
+// Enable the user to refresh the description by clicking on the page without
+// adding more following descriptions.
+$(document).click(function() {
+  $('body').empty();
+  $.getJSON('data/data.json', dataLoaded);
+});
+
+// dataLoaded (data)
 //
 // This function gets called by getJSON when the data has been loaded.
-// The data itself will be in the 'data' argument as a JavaScript object.
-function gotData(data) {
-  // Now we select random elements from the three arrays inside
-  // our JSON to get a random condiment, cat, and room. Then we add those
-  // words onto our page by setting the text of the appropriate span.
+function dataLoaded(data) {
 
   // First the condiment
   // Get a random condiment from the condiments array in the JSON
@@ -78,8 +78,6 @@ function gotData(data) {
   }
 
   // Now we can construct our description with a template string
-  // We have the basic structure of a sentence and we substitute in the
-  // values we've just calculated
   let description = `${condiment} ${verb} like ${articleSupernaturalCreature} ${supernaturalCreature} ${cat} in ${articleRoom} ${room} with ${deity}.`;
 
   // Finally, we add it to the page and hey presto!
