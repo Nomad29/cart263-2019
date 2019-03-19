@@ -15,13 +15,9 @@ html {
 }
 
 body {
-<<<<<<< HEAD
   font-size: 3.5vmax;
-=======
-  font-size: 4vmax;
->>>>>>> 0dff3a7589731b7d15ddaf2b20569d31b53eb253
   font-family: 'Libre Baskerville', serif;
-  font-weight: 700;
+  font-weight: 700; 
   color: white;
   text-align: center;
   background: #134E5E;
