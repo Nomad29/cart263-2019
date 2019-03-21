@@ -89,7 +89,7 @@ function setup() {
 function mousePressed() {
   // Start an interval for the notes AND let the song play only once
   if (songBegins === false) {
-    setInterval(playNote, NOTE_TEMPO);
+    playNote();
     setInterval(playDrum, NOTE_TEMPO);
     songBegins = true;
   }
@@ -111,6 +111,8 @@ function playNote() {
     // If it's note already play, play the synth
     synth.play();
   }
+
+  setTimeout(playNote, Math.random() * NOTE_TEMPO);
 }
 
 // playDrum()
