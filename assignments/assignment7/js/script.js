@@ -101,6 +101,9 @@ function mousePressed() {
 function playNote() {
   // Pick a random frequency from the array
   let frequency = frequencies[Math.floor(Math.random() * frequencies.length)];
+  let distortion = new Pizzicato.Effects.Distortion({
+    gain: 0.4
+  });
 
   if (Math.random() <= 0.3) {
     // Stop the synth if Math.random() is smaller or equal than approximately 1/3 of his value
@@ -112,6 +115,7 @@ function playNote() {
     synth.play();
   }
 
+  synth.addEffect(distortion);
   setTimeout(playNote, Math.random() * NOTE_TEMPO);
 }
 
@@ -122,9 +126,14 @@ function playNote() {
 function playDrum() {
   // Get the symbols for the current beat in the pattern
   let symbols = pattern[patternIndex];
+  let compressor = new Pizzicato.Effects.Compressor({
+    threshold: -50,
+    ratio: 12
+  });
 
   // If there's an 'x' in there, play the kick
   if (symbols.indexOf('x') !== -1) {
+    kick.addEffect(compressor);
     kick.play();
   }
   // If there's an 'o' in there, play the snare
