@@ -24,7 +24,7 @@ const RELEASE = 0.1;
 // We can get the frequencies of these notes from THE INTERNET, e.g.
 // http://pages.mtu.edu/~suits/notefreqs.html
 let frequencies = [
-  220,246.94,277.18,293.66,329.63,369.99,415.30
+  220, 246.94, 277.18, 293.66, 329.63, 369.99, 415.30
 ];
 // The synth
 let synth;
@@ -36,7 +36,7 @@ let hihat;
 // Each array element is one beat and has a string with each
 // drum to play for that beat
 // x = kick, o = snare, * = hihat
-let pattern = ['x','*','xo*',' ','x','x','xo','*'];
+let pattern = ['x', '*', 'xo*', ' ', 'x', 'x', 'xo', '*'];
 // Which beat of the pattern we're at right now
 let patternIndex = 0;
 // Variable for making the song play once possible
@@ -46,7 +46,7 @@ let songBegins = false;
 //
 // Creat canvas, set up the synth and sound files.
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(windowWidth, windowHeight);
 
   // Create the synth
   synth = new Pizzicato.Sound({
@@ -89,10 +89,10 @@ function setup() {
 function mousePressed() {
   // Start an interval for the notes AND let the song play only once
   if (songBegins === false) {
-       setInterval(playNote,NOTE_TEMPO);
-       setInterval(playDrum,NOTE_TEMPO);
-       songBegins = true;
-   }
+    setInterval(playNote, NOTE_TEMPO);
+    setInterval(playDrum, NOTE_TEMPO);
+    songBegins = true;
+  }
 }
 
 // playNote
@@ -101,10 +101,16 @@ function mousePressed() {
 function playNote() {
   // Pick a random frequency from the array
   let frequency = frequencies[Math.floor(Math.random() * frequencies.length)];
-  // Set the synth's frequency
-  synth.frequency = frequency;
-  // If it's note already play, play the synth
-  synth.play();
+
+  if (Math.random() <= 0.3) {
+    // Stop the synth if Math.random() is smaller or equal than approximately 1/3 of his value
+    synth.stop();
+  } else {
+    // Set the synth's frequency
+    synth.frequency = frequency;
+    // If it's note already play, play the synth
+    synth.play();
+  }
 }
 
 // playDrum()
@@ -135,5 +141,4 @@ function playDrum() {
 //
 // Nothing right now.
 
-function draw() {
-}
+function draw() {}
