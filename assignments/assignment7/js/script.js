@@ -44,7 +44,7 @@ let songBegins = false;
 
 // setup()
 //
-// Creat canvas, set up the synth and sound files.
+// Create canvas, set up the synth and sound files.
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
@@ -105,8 +105,8 @@ function playNote() {
     gain: 0.4
   });
 
-  if (Math.random() <= 0.3) {
-    // Stop the synth if Math.random() is smaller or equal than approximately 1/3 of his value
+  if (frequency <= 300) {
+    // Stop the synth if frequency is smaller or equal than approximately half of its value
     synth.stop();
   } else {
     // Set the synth's frequency
