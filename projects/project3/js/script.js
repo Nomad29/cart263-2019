@@ -30,16 +30,4 @@ let voiceParameters = {
 
 $(document).ready(function() {
 
-  // We can have speech happen in reaction to different page
-  // events like clicks and keypresses, to make things more dynamic...
-
-  $(document).on('click',function () {
-    // say() is a function defined below
-    say("Test. Test. Test.");
-  });
-
 });
-
-function say (text) {
-  responsiveVoice.speak(text,voice,voiceParameters);
-}
