@@ -16,3 +16,30 @@ jQuery
 https://jquery.com/
 
 ******************/
+
+// Variables for the interactive experience
+let voice = 'Norwegian Male';
+
+// The parameters for the voice in an object
+let voiceParameters = {
+  pitch: 0.6,
+  rate: 0.8,
+  volume: 0.7
+}
+
+
+$(document).ready(function() {
+
+  // We can have speech happen in reaction to different page
+  // events like clicks and keypresses, to make things more dynamic...
+
+  $(document).on('click',function () {
+    // say() is a function defined below
+    say("Test. Test. Test.");
+  });
+
+});
+
+function say (text) {
+  responsiveVoice.speak(text,voice,voiceParameters);
+}
