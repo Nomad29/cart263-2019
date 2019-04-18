@@ -12,8 +12,10 @@ body {
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  background-color: #ececec;
-  font-family: 'Montserrat', sans-serif;
+  background: #2d364c;
+  background: -webkit-linear-gradient(to right, #2d364c, #353f59);
+  background: linear-gradient(to right, #2d364c, #353f59);
+  font-family: 'Nunito', sans-serif;
 }
 
 /*********************************************
@@ -23,9 +25,7 @@ Loading screen
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background: #b8cc73;
-  background: -webkit-linear-gradient(to right, #b0d4e4, #b8cc73);
-  background: linear-gradient(to right, #b0d4e4, #b8cc73);
+  background: #ececec;
   animation: loading 2.5s 2 forwards ease-in-out;
   animation-timing-function: cubic-bezier(.5, 0, .5, 1);
 }
@@ -37,6 +37,7 @@ Loading screen
   font-size: 3em;
   text-align: center;
   line-height: 105vh;
+  animation: loading 2.5s 2 forwards ease-in-out;
   margin: 0;
   position: fixed;
   z-index: 1;
@@ -53,7 +54,9 @@ Loading screen
   height: 100%;
   min-height: 100vh;
   animation: fade 0.2s 4.5s forwards, bg 45s linear infinite;
-  background: #f6f6f6;
+  background: #2d364c;
+  background: -webkit-linear-gradient(to right, #2d364c, #353f59);
+  background: linear-gradient(to right, #2d364c, #353f59);
   opacity: 0;
   z-index: 2;
   background-image: url(../assets/images/background-intro.svg);
@@ -127,7 +130,7 @@ Loading screen
 }
 
 /*********************************************
-Game menu UI
+Landing menu UI
 **********************************************/
 .menu-container {
   display: -ms-flexbox;
@@ -172,12 +175,15 @@ Game menu UI
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto;
-  font-family: 'Montserrat', sans-serif;
-  width: 300px;
+  font-family: 'Nunito', sans-serif;
+  width: 380px;
   text-align: center;
+  padding-top: 0.5em;
+  padding-right: 1em;
+  padding-bottom: 3em;
+  padding-left: 1em;
   font-size: 16px;
-  font-weight: 600;
-  color: #010f43;
+  color: white;
 }
 
 .menu-item:nth-child(3) {
@@ -190,30 +196,9 @@ Game menu UI
   -webkit-align-self: auto;
   -ms-flex-item-align: auto;
   align-self: auto;
-  font-family: 'Montserrat', sans-serif;
-  width: 300px;
-  text-align: center;
-  padding-top: 0.5em;
-  padding-right: 1em;
-  padding-bottom: 3em;
-  padding-left: 1em;
-  font-size: 14px;
-  color: #010f43;
 }
 
 .menu-item:nth-child(4) {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  -webkit-align-self: auto;
-  -ms-flex-item-align: auto;
-  align-self: auto;
-}
-
-.menu-item:nth-child(5) {
   -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
@@ -264,7 +249,7 @@ html body #modal section {
 .aboutus {
   height: 80%;
   width: 100%;
-  margin-bottom: 5%;
+  margin-top: 5%;
   top: 0;
   left: 0;
 }
@@ -279,22 +264,23 @@ html body #modal section {
 
 .controls a {
   text-decoration: none;
-  color: #010f43;
+  color: #2d364c;
 }
 
 .button {
   display: inline-block;
   height: 2em;
   line-height: 2em;
-  width: 250px;
-  color: #010f43;
+  width: 300px;
+  color: #2d364c;
   text-align: center;
-  border: 2px solid #93ab4c;
+  border: 2px solid #f6f6f6;
   background-color: #f6f6f6;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .button:hover, .button:focus {
@@ -339,8 +325,7 @@ html body #modal section {
   -ms-flex-item-align: auto;
   align-self: auto;
   text-align: center;
-  width: 35%;
-  padding-right: 2.5%;
+  width: 30%;
 }
 
 .about-item:nth-child(2) {
@@ -354,16 +339,46 @@ html body #modal section {
   -ms-flex-item-align: auto;
   align-self: auto;
   text-align: center;
-  width: 35%;
-  padding-left: 2.5%;
+  width: 30%;
 }
 
 p {
-    line-height: 1.5em;
-    color: #010f43;
+  line-height: 1.5em;
+  color: #2d364c;
+  font-size: 0.9em;
 }
 
 h3 {
-    line-height: 1.5em;
-    color: #010f43;
+  line-height: 1.5em;
+  color: #2d364c;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ==============================
+   Loading screen of Scan page
+============================== */
+.loader-scan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  background: #2d364c;
+  background: -webkit-linear-gradient(to right, #2d364c, #353f59);
+  background: linear-gradient(to right, #2d364c, #353f59);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  z-index: 9999;
+}
+
+.loadingImg {
+  height: 7vmax;
+  width: auto;
+}
+
+.loadingContent {
+  display: inline-inline-block;
 }

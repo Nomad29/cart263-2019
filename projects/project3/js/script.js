@@ -27,7 +27,11 @@ let voiceParameters = {
   volume: 0.7
 }
 
-
 $(document).ready(function() {
+
+  //Calls the loading screen for the Scan page
+  setTimeout(function() {
+    $('.loader-scan').hide();
+  }, 9000);
 
 });
