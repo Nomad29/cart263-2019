@@ -18,8 +18,14 @@ https://jquery.com/
 ******************/
 
 // Variables for the interactive experience
-let voice = 'Norwegian Male';
 
+// Links some variables to the HTML page
+let myVirus;
+let $sprite;
+let $message;
+let $influence;
+// Voice variable
+let voice = 'Norwegian Male';
 // The parameters for the voice in an object
 let voiceParameters = {
   pitch: 0.6,
@@ -32,6 +38,56 @@ $(document).ready(function() {
   //Calls the loading screen for the Scan page
   setTimeout(function() {
     $('.loader-scan').hide();
-  }, 9000);
+  }, 90);
+
+  $sprite = $("#sprite");
+  $message = $("#message");
+  $influence = $("#influence");
+
+  // Creates the Virus
+  myVirus = new Virus(); // New Virus function to let other lines of code to unfold
+  $influence.html(myVirus.influence);
+
+  let virusInfo = setInterval(function() {
+    $influence.html(myVirus.influence);
+    $message.html("Why hello there!");
+    $sprite.html(":D");
+    myVirus.life();
+
+    if (myVirus.influence < 70) {
+      $message.html("Hey!");
+      $sprite.html(":)");
+    }
+
+    if (myVirus.influence < 50) {
+      $message.html("Hey...");
+      $sprite.html(":/");
+    }
+
+    if (myVirus.influence < 30) {
+      $message.html("HEY.");
+      $sprite.html(":o");
+      $("#influence").css({"display": "inherit"});
+      $("#btns").css({"display": "inherit"});
+      $("#btnDelete").css({"display": "none"});
+    }
+
+    if (myVirus.influence < 10) {
+      $message.html("Virus has no more influence");
+      $("#influence").css({"display": "none"});
+      $("#btns").css({"display": "none"});
+      $("#btnDelete").css({"display": "inherit"});
+      $sprite.html(":0");
+    }
+
+    if (myVirus.influence <= 0) {
+      $message.html("Virus has been deleted");
+      $influence.html = 0;
+      $sprite.html(":x");
+      $("#btnDelete").css({"display": "none"});
+      clearInterval(virusInfo);
+    }
+  }, 1000);
+
 
 });

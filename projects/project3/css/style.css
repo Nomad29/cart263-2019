@@ -26,7 +26,7 @@ Loading screen
   height: 100%;
   min-height: 100vh;
   background: #ececec;
-  animation: loading 2.5s 2 forwards ease-in-out;
+  animation: loading 2.5s 1 forwards ease-in-out;
   animation-timing-function: cubic-bezier(.5, 0, .5, 1);
 }
 
@@ -37,7 +37,7 @@ Loading screen
   font-size: 3em;
   text-align: center;
   line-height: 105vh;
-  animation: loading 2.5s 2 forwards ease-in-out;
+  animation: loading 2.5s 1 forwards ease-in-out;
   margin: 0;
   position: fixed;
   z-index: 1;
@@ -53,7 +53,7 @@ Loading screen
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  animation: fade 0.2s 4.5s forwards, bg 45s linear infinite;
+  animation: fade 0.2s 2.3s forwards, bg 45s linear infinite;
   background: #2d364c;
   background: -webkit-linear-gradient(to right, #2d364c, #353f59);
   background: linear-gradient(to right, #2d364c, #353f59);
@@ -94,28 +94,6 @@ Loading screen
 
   100% {
     transform: translate(0, -100vh);
-  }
-}
-
-@keyframes loading-two {
-  0% {
-    transform: translate(0, 100%);
-  }
-
-  15% {
-    transform: translate(0, 100%);
-  }
-
-  50% {
-    transform: translate(0, 0);
-  }
-
-  75% {
-    transform: translate(0, -100%);
-  }
-
-  100% {
-    transform: translate(0, -100%);
   }
 }
 
@@ -278,18 +256,14 @@ html body #modal section {
   background-color: #f6f6f6;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1em;
   font-family: 'Open Sans', sans-serif;
 }
 
-.button:hover, .button:focus {
+.button:active {
   outline: none;
   background-color: #e3f6f7;
-}
-
-.button:active {
-  background-color: #b0d4e4;
 }
 
 .about-container {
@@ -381,4 +355,32 @@ h3 {
 
 .loadingContent {
   display: inline-inline-block;
+}
+
+
+/* ==============================
+   Virus related Scan page
+============================== */
+
+.content{
+  display: flex;
+  font-family: sans-serif;
+}
+
+.virus{
+  margin: 0 auto;
+  text-align: center;
+}
+
+#btnDelete{
+  display:none;
+}
+
+
+#sprite{
+  font-size: 4vmax;
+}
+
+#message{
+  font-size: 3vmax;
 }

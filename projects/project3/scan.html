@@ -20,9 +20,10 @@
 
   <!-- Own script file(s) -->
   <script src="js/script.js" content="text/javascript"></script>
+  <script src="js/Virus.js" content="text/javascript"></script>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Open+Sans:400,700" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400|Open+Sans:400,600,700" rel="stylesheet">
 
   <!-- Favicons -->
   <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -34,11 +35,27 @@
   <div class="loader-scan">
     <div class="loadingContent">
       <h1 style="color: white;font-family: 'Open Sans', sans-serif;">Scanning your computer for viruses</h1>
-      <h3 style="color:lightgray;font-family: 'Nunito', sans-serif;line-height:0;">Please wait for our most comprehensive scan to finish...</h3>
-       <img class="loadingImg" src="assets/images/loading.gif">
+      <h3 style="color:lightgray;font-family: 'Nunito', sans-serif;line-height:0;font-weight:normal;">Please wait for our most comprehensive scan to finish...</h3>
+      <img class="loadingImg" src="assets/images/loading.gif">
     </div>
   </div>
 
+  <div class="content">
+    <div class="virus">
+
+      <div id="sprite"></div>
+      <div id="message"></div>
+      <div id="influence"></div>
+
+      <div id="btns">
+        <button id="btnPet" onClick="myVirus.reduceInf()">Pet</button>
+        <button id="btnFeed" onClick="myVirus.reduceInf()">Feed</button>
+        <button id="btnPlay" onClick="myVirus.reduceInf()">Play</button>
+      </div>
+      <button id="btnDelete" onClick="myVirus.reduceInf()">Delete</button>
+
+    </div>
+  </div>
 
 </body>
 
