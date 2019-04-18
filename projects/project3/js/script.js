@@ -28,10 +28,11 @@ let $influence;
 let voice = 'Norwegian Male';
 // The parameters for the voice in an object
 let voiceParameters = {
-  pitch: 0.6,
+  pitch: 1.55,
   rate: 0.8,
   volume: 0.7
 }
+let nbrClick = 0;
 
 $(document).ready(function() {
 
@@ -45,28 +46,53 @@ $(document).ready(function() {
   $message = $("#message");
   $influence = $("#influence");
 
+  // Lets the virus's voice speak when buttons are clicked
+  $("#btnPet, #btnFeed, #btnPlay").on("click", function() {
+    nbrClick = nbrClick + 1;
+
+    if (nbrClick === 1) {
+      say("This is not very nice...");
+    }
+
+    if (nbrClick === 2) {
+      say("You fool...");
+    }
+
+    if (nbrClick === 3) {
+      say("You think you can beat me!?");
+    }
+
+    if (nbrClick === 4) {
+      say("En garde ma mignonne!");
+    }
+
+    if (nbrClick === 5) {
+      say("I will never succumb to the likes of you!");
+    }
+  });
+
   // Creates the Virus
   myVirus = new Virus(); // New Virus function to let other lines of code to unfold
   $influence.html(myVirus.influence);
 
   let virusInfo = setInterval(function() {
     $influence.html(myVirus.influence);
-    $message.html("Why hello there!");
+    $message.html("There! The virus");
     $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
     myVirus.life();
 
     if (myVirus.influence < 70) {
-      $message.html("Hey!");
+      $message.html("Diminish its influence");
       $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
     }
 
     if (myVirus.influence < 50) {
-      $message.html("Hey...");
+      $message.html("Do it again!");
       $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
     }
 
     if (myVirus.influence < 30) {
-      $message.html("HEY.");
+      $message.html("Just a little more");
       $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
       $("#influence").css({
         "display": "inherit"
@@ -118,5 +144,12 @@ function closeWarning() {
 //
 // Fade slowly the virus sprite when deleted
 function virusFade() {
-  $sprite.fadeTo( 3000, 0 );
+  $sprite.fadeOut(3000, 0);
+}
+
+// say (text)
+//
+// Lets the voice of virus be heard when call in another function
+function say(text) {
+  responsiveVoice.speak(text, voice, voiceParameters);
 }
