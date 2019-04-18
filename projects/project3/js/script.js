@@ -52,41 +52,56 @@ $(document).ready(function() {
   let virusInfo = setInterval(function() {
     $influence.html(myVirus.influence);
     $message.html("Why hello there!");
-    $sprite.html(":D");
+    $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
     myVirus.life();
 
     if (myVirus.influence < 70) {
       $message.html("Hey!");
-      $sprite.html(":)");
+      $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
     }
 
     if (myVirus.influence < 50) {
       $message.html("Hey...");
-      $sprite.html(":/");
+      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
     }
 
     if (myVirus.influence < 30) {
       $message.html("HEY.");
-      $sprite.html(":o");
-      $("#influence").css({"display": "inherit"});
-      $("#btns").css({"display": "inherit"});
-      $("#btnDelete").css({"display": "none"});
+      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
+      $("#influence").css({
+        "display": "inherit"
+      });
+      $("#btns").css({
+        "display": "inherit"
+      });
+      $("#btnDelete").css({
+        "display": "none"
+      });
     }
 
     if (myVirus.influence < 10) {
       $message.html("Virus has no more influence");
-      $("#influence").css({"display": "none"});
-      $("#btns").css({"display": "none"});
-      $("#btnDelete").css({"display": "inherit"});
-      $sprite.html(":0");
+      $("#influence").css({
+        "display": "none"
+      });
+      $("#btns").css({
+        "display": "none"
+      });
+      $("#btnDelete").css({
+        "display": "inherit"
+      });
+      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-s.gif)");
     }
 
-    if (myVirus.influence <= 0) {
+    if (myVirus.influence < 0) {
       $message.html("Virus has been deleted");
       $influence.html = 0;
-      $sprite.html(":x");
-      $("#btnDelete").css({"display": "none"});
+      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-s.gif)");
+      $("#btnDelete").css({
+        "display": "none"
+      });
       clearInterval(virusInfo);
+      virusFade();
     }
   }, 1000);
 
@@ -97,4 +112,11 @@ $(document).ready(function() {
 // Close the Warning screen after the scanning so the game can truly begins
 function closeWarning() {
   $('.warning-popup').hide();
+}
+
+// virusFade()
+//
+// Fade slowly the virus sprite when deleted
+function virusFade() {
+  $sprite.fadeTo( 3000, 0 );
 }
