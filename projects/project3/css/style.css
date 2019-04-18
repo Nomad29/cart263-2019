@@ -213,7 +213,7 @@ html body #modal:focus, html body #modal:target {
   transform: scale(1);
 }
 
-html body #modal section {
+html body section {
   position: fixed;
   top: 0;
   left: 0;
@@ -355,32 +355,44 @@ h3 {
 
 .loadingContent {
   display: inline-inline-block;
+  animation: fade 2.3s forwards;
 }
-
 
 /* ==============================
    Virus related Scan page
 ============================== */
-
-.content{
+.warning-popup {
   display: flex;
-  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #ececec;
+  position: absolute;
 }
 
-.virus{
+.content {
+  display: flex;
+  font-family: sans-serif;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #ececec;
+}
+
+.virus {
   margin: 0 auto;
   text-align: center;
 }
 
-#btnDelete{
-  display:none;
+#btnDelete {
+  display: none;
 }
 
-
-#sprite{
+#sprite {
   font-size: 4vmax;
 }
 
-#message{
+#message {
   font-size: 3vmax;
 }

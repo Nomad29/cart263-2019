@@ -38,7 +38,8 @@ $(document).ready(function() {
   //Calls the loading screen for the Scan page
   setTimeout(function() {
     $('.loader-scan').hide();
-  }, 90);
+    $('.warning-popup').show();
+  }, 900);
 
   $sprite = $("#sprite");
   $message = $("#message");
@@ -89,5 +90,11 @@ $(document).ready(function() {
     }
   }, 1000);
 
-
 });
+
+// closeWarning()
+//
+// Close the Warning screen after the scanning so the game can truly begins
+function closeWarning() {
+  $('.warning-popup').hide();
+}
