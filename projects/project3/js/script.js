@@ -30,7 +30,7 @@ let voice = 'Norwegian Male';
 let voiceParameters = {
   pitch: 1.55,
   rate: 0.8,
-  volume: 3
+  volume: 10
 }
 // Makes the virus's voice make statement each clicks
 let nbrClick = 0;
@@ -39,6 +39,7 @@ let gameSFX = new Audio("assets/sounds/soundtrack.mp3");
 // Variables to hold the feeding game
 let $spriteF;
 let $fly;
+let $fly2;
 let $tomato;
 // Sound effect for the feeding experience
 let crunchSFX = new Audio("assets/sounds/crunch.mp3");
@@ -200,13 +201,23 @@ $(document).ready(function() {
   $fly = $('#fly');
   // Make it draggable
   $fly.draggable({
-    revert: false,
+    revert: true,
     helper: "clone",
     start: function(event, ui) {
       say("Yuuugh...");
     }
   });
-  // Get the fly element from the page
+  // Get the second fly element from the page
+  $fly2 = $('#fly2');
+  // Make it draggable
+  $fly2.draggable({
+    revert: true,
+    helper: "clone",
+    start: function(event, ui) {
+      say("Yuuugh...");
+    }
+  });
+  // Get the tomato element from the page
   $tomato = $('#tomato');
   // Make it draggable
   $tomato.draggable({

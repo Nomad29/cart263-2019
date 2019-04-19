@@ -80,20 +80,29 @@
   <section id="pet">
     <div class="content">
       <div class="virus">
-      <img id="hand" style="width: 7vmax;height: auto;position: absolute;margin: 0 auto;    margin-top: -7vmax;" src="assets/images/handpet.svg">
-      <div><img id="spriteP" style="width: 15vmax;height: auto;" src="assets/images/virus.gif"></div>
-    </div>
+        <img id="hand" style="width: 7vmax;height: auto;position: absolute;margin: 0 auto;    margin-top: -7vmax;" src="assets/images/handpet.svg">
+        <div><img id="spriteP" style="width: 15vmax;height: auto;" src="assets/images/virus.gif"></div>
+      </div>
     </div>
   </section>
 
   <section id="feed">
-    <div class="content">
+    <div class="content" style="z-index: 2;position: relative;background: none;background-image:url(../project3/assets/images/bg-virus-f.png);background-position: 24.4vmax center;background-size: 55%;background-repeat: no-repeat;">
       <div class="virus">
-      <div><img id="spriteF" style="width: 15vmax;height: auto;" src="assets/images/virus.gif"></div>
-      <img id="fly" src="assets/images/fly.png">
-      <img id="tomato" src="assets/images/tomato.png">
+        <div style="position: relative;">
+          <img id="spriteF" style="width: 13vmax;height: auto;" src="assets/images/virus.gif">
+        </div>
+        <div style="position: fixed;bottom: 0;height: 100%;width: 35vmax;left: 0;">
+          <div style="position: relative;height: 100%;width: 21vmax;top: 0px;">
+            <img id="fly" style="position: absolute;left: 0;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/fly.png">
+            <img id="tomato" style="position: absolute;left: 7vmax;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/tomato.png">
+            <img id="fly2" style="position: absolute;left: 14vmax;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/fly.png">
+            <img style="height: 80%;position: absolute;left: 0;width: 25vmax;top: 0;bottom: 0;margin: auto;" src="assets/images/bg-food-f.png">
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+    <div id="background-feed"></div>
   </section>
 
 </body>
