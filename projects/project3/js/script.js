@@ -98,22 +98,22 @@ $(document).ready(function() {
   let virusInfo = setInterval(function() {
     $influence.html(myVirus.influence);
     $message.html("There! The virus");
-    $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
+    $sprite.css("background-image", "url(assets/images/virus.gif)");
     myVirus.life();
 
     if (myVirus.influence < 70) {
       $message.html("Diminish its influence");
-      $sprite.css("background-image", "url(/projects/project3/assets/images/virus.gif)");
+      $sprite.css("background-image", "url(assets/images/virus.gif)");
     }
 
     if (myVirus.influence < 50) {
       $message.html("Do it again!");
-      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
+      $sprite.css("background-image", "url(assets/images/virus-a.gif)");
     }
 
     if (myVirus.influence < 30) {
       $message.html("Just a little more");
-      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-a.gif)");
+      $sprite.css("background-image", "url(assets/images/virus-a.gif)");
       $("#influence").css({
         "display": "inherit"
       });
@@ -136,13 +136,13 @@ $(document).ready(function() {
       $("#btnDelete").css({
         "display": "inherit"
       });
-      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-s.gif)");
+      $sprite.css("background-image", "url(assets/images/virus-s.gif)");
     }
 
     if (myVirus.influence < 0) {
       $message.html("Virus has been deleted");
       $influence.html = 0;
-      $sprite.css("background-image", "url(/projects/project3/assets/images/virus-s.gif)");
+      $sprite.css("background-image", "url(assets/images/virus-s.gif)");
       $("#btnDelete").css({
         "display": "none"
       });
