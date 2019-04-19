@@ -18,7 +18,7 @@ https://jquery.com/
 ******************/
 
 // Variables for the interactive experience
-
+//
 // Links some variables to the HTML page
 let myVirus;
 let $sprite;
@@ -30,43 +30,63 @@ let voice = 'Norwegian Male';
 let voiceParameters = {
   pitch: 1.55,
   rate: 0.8,
-  volume: 0.7
+  volume: 3
 }
+// Makes the virus's voice make statement each clicks
 let nbrClick = 0;
+// Soundtrack for the experience
+let gameSFX = new Audio("assets/sounds/soundtrack.mp3");
+// Variables to hold the feeding game
+let $spriteF;
+let $fly;
+let $tomato;
+// Sound effect for the feeding experience
+let crunchSFX = new Audio("assets/sounds/crunch.mp3");
 
+// Beginning
 $(document).ready(function() {
+  // Hides the game for Pet, Feed and Play until they are individually called
+  $('#pet').hide();
+  $('#feed').hide();
+  $('#play').hide();
 
-  //Calls the loading screen for the Scan page
+  // Calls the loading screen for the Scan page
   setTimeout(function() {
     $('.loader-scan').hide();
     $('.warning-popup').show();
   }, 900);
 
+  // Gets the virus elements from the Scan HTML page
   $sprite = $("#sprite");
   $message = $("#message");
   $influence = $("#influence");
 
   // Lets the virus's voice speak when buttons are clicked
   $("#btnPet, #btnFeed, #btnPlay").on("click", function() {
+    // Adds 1 with one click
     nbrClick = nbrClick + 1;
 
     if (nbrClick === 1) {
-      say("This is not very nice...");
+      say("You think you can buy me?");
     }
 
     if (nbrClick === 2) {
-      say("You fool...");
+      say("This is not very nice...");
     }
 
     if (nbrClick === 3) {
-      say("You think you can beat me!?");
+      say("You fool...");
     }
 
     if (nbrClick === 4) {
-      say("En garde ma mignonne!");
+      say("You think you can beat me!?");
     }
 
     if (nbrClick === 5) {
+      say("En garde ma mignonne!");
+    }
+
+    if (nbrClick === 6) {
       say("I will never succumb to the likes of you!");
     }
   });
@@ -131,6 +151,39 @@ $(document).ready(function() {
     }
   }, 1000);
 
+
+  // Sets the feeding game
+  //
+  // Get the spriteF element from the page
+  $spriteF = $('#spriteF');
+  // Make it droppable
+  $spriteF.droppable({
+    accept: "#tomato",
+    // The drop option specifies a function to call when a drop is completed
+    drop: foodDropped
+  });
+
+  // Get the fly element from the page
+  $fly = $('#fly');
+  // Make it draggable
+  $fly.draggable({
+    revert: false,
+    helper: "clone",
+    start: function(event, ui) {
+      say("Yuuugh...");
+    }
+  });
+  // Get the fly element from the page
+  $tomato = $('#tomato');
+  // Make it draggable
+  $tomato.draggable({
+    revert: false,
+    helper: "clone",
+    start: function(event, ui) {
+      say("I guess I can try it.");
+    }
+  });
+
 });
 
 // closeWarning()
@@ -138,6 +191,9 @@ $(document).ready(function() {
 // Close the Warning screen after the scanning so the game can truly begins
 function closeWarning() {
   $('.warning-popup').hide();
+  // Plays the soundtrack when the game screen appears
+  gameSFX.loop = true;
+  gameSFX.play();
 }
 
 // virusFade()
@@ -152,4 +208,40 @@ function virusFade() {
 // Lets the voice of virus be heard when call in another function
 function say(text) {
   responsiveVoice.speak(text, voice, voiceParameters);
+}
+
+// feedScreen() - Feeding game starts
+//
+// The function for the game of feeding the Virus
+function feedScreen() {
+  $('#feed').show();
+}
+
+// foodDropped(event,ui) - Feeding game
+//
+// Called when a draggable element is dragged over the droppable element (the spriteF)
+function foodDropped(event, ui) {
+  // Hides the draggables elements that have been eaten
+  ui.draggable.hide();
+  // Adds back the draggables elements that have been eaten if player make the virus eat again
+  ui.draggable.show();
+
+  // We should "close the spriteF" by changing its image
+  $(this).attr('src', 'assets/images/virus.gif');
+
+  if ($spriteF.attr('src') === 'assets/images/virus.gif') {
+    // If it is, we set the 'src' attribute to the closed spriteF
+    $spriteF.attr('src', 'assets/images/virus-l.gif');
+  }
+
+  // And start the crunching sound effect of chewing
+  crunchSFX.play();
+  setTimeout(function() {
+    $('#feed').hide();
+    myVirus.reduceInf();
+    if ($spriteF.attr('src') === 'assets/images/virus-l.gif') {
+      // If it is, we set the 'src' attribute to the closed spriteF
+      $spriteF.attr('src', 'assets/images/virus.gif');
+    }
+  }, 1500);
 }
