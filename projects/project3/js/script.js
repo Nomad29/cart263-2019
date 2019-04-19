@@ -42,6 +42,7 @@ let $fly;
 let $tomato;
 // Sound effect for the feeding experience
 let crunchSFX = new Audio("assets/sounds/crunch.mp3");
+let purrSFX = new Audio("assets/sounds/purring.mp3");
 // Variables to hold the feeding game
 let $spriteP;
 let $hand;
@@ -165,7 +166,7 @@ $(document).ready(function() {
     accept: $hand,
     over: function(event, ui) {
       globalTimer = setTimeout(function() {
-        handDropped()
+        handDropped();
       }, 3000);
     },
     out: function(event, ui) {
@@ -251,23 +252,23 @@ function petScreen() {
 
 // handDropped(event,ui) - Feeding game
 //
-// Called when a draggable element is dragged over the droppable element (the spriteF)
+// Called when a draggable element is dragged over the droppable element (the spriteP)
 function handDropped(event, ui) {
-  // We should "close the spriteF" by changing its image
+  // We should "close the spriteP" by changing its image
   $(this).attr('src', 'assets/images/virus.gif');
 
   if ($spriteP.attr('src') === 'assets/images/virus.gif') {
-    // If it is, we set the 'src' attribute to the closed spriteF
+    // If it is, we set the 'src' attribute to the closed spriteP
     $spriteP.attr('src', 'assets/images/virus-l.gif');
   }
 
   // And start the crunching sound effect of chewing
-  crunchSFX.play();
+  purrSFX.play();
   setTimeout(function() {
     $('#pet').hide();
     myVirus.reduceInf();
     if ($spriteP.attr('src') === 'assets/images/virus-l.gif') {
-      // If it is, we set the 'src' attribute to the closed spriteF
+      // If it is, we set the 'src' attribute to the closed spriteP
       $spriteP.attr('src', 'assets/images/virus.gif');
     }
   }, 1500);
