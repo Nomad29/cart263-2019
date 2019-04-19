@@ -375,9 +375,9 @@ h3 {
 }
 
 #sprite {
-  background-size: auto;
+  background-size: 15vmax;
   width: auto;
-  height: 98px;
+  height: 15vmax;
   background-repeat: no-repeat;
   margin: 0 auto;
   background-position: center;

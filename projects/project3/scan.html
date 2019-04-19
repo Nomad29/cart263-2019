@@ -67,7 +67,7 @@
         <div id="influence"></div>
 
         <div id="btns">
-          <button id="btnPet" onClick="myVirus.reduceInf()">Pet</button>
+          <button id="btnPet" onClick="petScreen()">Pet</button>
           <button id="btnFeed" onClick="feedScreen()">Feed</button>
           <button id="btnPlay" onClick="myVirus.reduceInf()">Play</button>
         </div>
@@ -77,10 +77,19 @@
     </div>
   </section>
 
+  <section id="pet">
+    <div class="content">
+      <div class="virus">
+      <img id="hand" style="width: 7vmax;height: auto;position: absolute;margin: 0 auto;    margin-top: -7vmax;" src="assets/images/handpet.svg">
+      <div><img id="spriteP" style="width: 15vmax;height: auto;" src="assets/images/virus.gif"></div>
+    </div>
+    </div>
+  </section>
+
   <section id="feed">
     <div class="content">
       <div class="virus">
-      <div><img id="spriteF" src="assets/images/virus.gif"></div>
+      <div><img id="spriteF" style="width: 15vmax;height: auto;" src="assets/images/virus.gif"></div>
       <img id="fly" src="assets/images/fly.png">
       <img id="tomato" src="assets/images/tomato.png">
     </div>

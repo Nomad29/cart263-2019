@@ -42,6 +42,10 @@ let $fly;
 let $tomato;
 // Sound effect for the feeding experience
 let crunchSFX = new Audio("assets/sounds/crunch.mp3");
+// Variables to hold the feeding game
+let $spriteP;
+let $hand;
+let globalTimer;
 
 // Beginning
 $(document).ready(function() {
@@ -151,6 +155,34 @@ $(document).ready(function() {
     }
   }, 1000);
 
+  // Sets the petting game
+  //
+  // Get the spriteP element from the page
+  $spriteP = $('#spriteP');
+
+  // Make it droppable
+  $spriteP.droppable({
+    accept: $hand,
+    over: function(event, ui) {
+      globalTimer = setTimeout(function() {
+        handDropped()
+      }, 3000);
+    },
+    out: function(event, ui) {
+      clearTimeout(globalTimer);
+    }
+  });
+
+  // Get the hand element from the page
+  $hand = $('#hand');
+  // Make it draggable
+  $hand.draggable({
+    revert: true,
+    start: function(event, ui) {
+      say("I'm not sure...");
+    }
+  });
+
 
   // Sets the feeding game
   //
@@ -209,6 +241,38 @@ function virusFade() {
 function say(text) {
   responsiveVoice.speak(text, voice, voiceParameters);
 }
+
+// petScreen() - Feeding game starts
+//
+// The function for the game of feeding the Virus
+function petScreen() {
+  $('#pet').show();
+}
+
+// handDropped(event,ui) - Feeding game
+//
+// Called when a draggable element is dragged over the droppable element (the spriteF)
+function handDropped(event, ui) {
+  // We should "close the spriteF" by changing its image
+  $(this).attr('src', 'assets/images/virus.gif');
+
+  if ($spriteP.attr('src') === 'assets/images/virus.gif') {
+    // If it is, we set the 'src' attribute to the closed spriteF
+    $spriteP.attr('src', 'assets/images/virus-l.gif');
+  }
+
+  // And start the crunching sound effect of chewing
+  crunchSFX.play();
+  setTimeout(function() {
+    $('#pet').hide();
+    myVirus.reduceInf();
+    if ($spriteP.attr('src') === 'assets/images/virus-l.gif') {
+      // If it is, we set the 'src' attribute to the closed spriteF
+      $spriteP.attr('src', 'assets/images/virus.gif');
+    }
+  }, 1500);
+}
+
 
 // feedScreen() - Feeding game starts
 //
