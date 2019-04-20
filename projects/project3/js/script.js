@@ -48,6 +48,9 @@ let purrSFX = new Audio("assets/sounds/purring.mp3");
 let $spriteP;
 let $hand;
 let globalTimer;
+// Counter for number of time the player needs to click in order to complete the game
+let dataCount = 5;
+
 
 // Beginning
 $(document).ready(function() {
@@ -228,7 +231,54 @@ $(document).ready(function() {
     }
   });
 
+
+  // Game of game
+  //
+  // Game to play when user clicks on the Play button. Pure Javascript inspired
+  // by bits of code by Ronni DC on StackOverflow
+  // Gets the elements from the Scan HTML page
+  let pickdata = document.querySelector(".file-icon");
+  let showCount = document.querySelector(".data-span");
+  // Variables for the window resize for the file-icon in the game of game to respect the limit
+  // of the screen
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+
+  // Function for the window resize for the file-icon in the game of game to respect the limit
+  // of the screen
+  window.onresize = function() {
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+  }
+
+  // OnClick function for when the user click on the file-icon
+  $('.file-icon').on("click", function() {
+    pickdata.style.top = Math.round(Math.random() * windowHeight) + "px";
+    pickdata.style.left = Math.round(Math.random() * windowWidth) + "px";
+    dataCount--;
+    showCount.innerHTML = dataCount;
+
+    // Ends the game of game, reset the counter, hide the game and diminish the virus influence
+    if (dataCount === 0) {
+      $('#play').hide();
+      myVirus.reduceInf();
+      dataCount = 5;
+      showCount.innerHTML = dataCount;
+    }
+
+  });
+
 });
+
+
+// window.onresize = function()
+//
+// For containing the data file icon in the game of game
+window.onresize = function() {
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+}
+
 
 // closeWarning()
 //
@@ -320,4 +370,12 @@ function foodDropped(event, ui) {
       $spriteF.attr('src', 'assets/images/virus.gif');
     }
   }, 1500);
+}
+
+
+// playScreen() - Feeding game starts
+//
+// The function for the game of games for the Virus
+function playScreen() {
+  $('#play').show();
 }

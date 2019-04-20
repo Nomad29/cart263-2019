@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*********************************************
 
 Here is a description of any special CSS used.
@@ -396,4 +397,86 @@ h3 {
   height: 30%;
   background-color: #d5bbaa;
   z-index: 1;
+}
+
+div.data-caption {
+  width: 100%;
+  position: fixed;
+  color: rgba(255, 255, 255, .4);
+  font-size: 1.5em;
+  text-align: center;
+  top: 30px;
+  text-transform: uppercase;
+}
+
+div.data-caption span {
+  color: rgba(255, 255, 255, .6);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/*! fileicon.css v0.1.1 | MIT License | github.com/picturepan2/fileicon.css */
+/* fileicon.basic */
+div.file-icon {
+  font-family: Arial, Tahoma, sans-serif;
+  font-weight: 300;
+  display: inline-block;
+  width: 48px;
+  height: 64px;
+  background: #018fef;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  border-radius: 3px;
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+  animation: bounce 3s ease-in-out infinite;
+  transition: .2s;
+}
+
+div.file-icon::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-bottom-left-radius: 2px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #ececec #ececec rgba(255, 255, 255, .35) rgba(255, 255, 255, .35);
+}
+
+div.file-icon::after {
+  display: block;
+  content: attr(data-type);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  color: #fff;
+  text-transform: lowercase;
+  width: 100%;
+  padding: 4px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.file-icon[data-type^=doc] {
+  background: #307cf1;
 }

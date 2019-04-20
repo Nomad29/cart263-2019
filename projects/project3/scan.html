@@ -32,6 +32,7 @@
 
 <body>
 
+  <!-- Scanning screen -->
   <div class="loader-scan">
     <div class="loadingContent">
       <h1 style="color: white;font-family: 'Open Sans', sans-serif;">Scanning your computer for viruses</h1>
@@ -40,6 +41,7 @@
     </div>
   </div>
 
+  <!-- Warning: Virus detected popup -->
   <div class="warning-popup">
     <section>
       <div class="aboutus">
@@ -58,6 +60,7 @@
     </section>
   </div>
 
+  <!-- Interactive experience root -->
   <section>
     <div class="content">
       <div class="virus">
@@ -69,7 +72,7 @@
         <div id="btns">
           <button id="btnPet" onClick="petScreen()">Pet</button>
           <button id="btnFeed" onClick="feedScreen()">Feed</button>
-          <button id="btnPlay" onClick="myVirus.reduceInf()">Play</button>
+          <button id="btnPlay" onClick="playScreen()">Play</button>
         </div>
         <button id="btnDelete" onClick="myVirus.reduceInf()">Delete</button>
 
@@ -77,6 +80,7 @@
     </div>
   </section>
 
+  <!-- Petting game -->
   <section id="pet">
     <div class="content" style="background: none;background-image:url(../project3/assets/images/bg-pet.png);background-position: center;background-size: cover;background-repeat: no-repeat;width: 100%;height: 100%;position: fixed;top: 0;left: 0;">
       <div class="virus">
@@ -86,6 +90,7 @@
     </div>
   </section>
 
+  <!-- Feeding game -->
   <section id="feed">
     <div class="content" style="z-index: 2;position: relative;background: none;background-image:url(../project3/assets/images/bg-virus-f.png);background-position: 24.4vmax center;background-size: 55%;background-repeat: no-repeat;">
       <div class="virus">
@@ -106,6 +111,19 @@
       </div>
     </div>
     <div id="background-feed"></div>
+  </section>
+
+  <!-- Playing game -->
+  <section id="play">
+    <div class="content" style="background: none;background-image:url(../project3/assets/images/bg-play.png);background-position: center;background-size: cover;background-repeat: no-repeat;width: 100%;height: 100%;position: fixed;top: 0;left: 0;">
+      <div class="virus">
+        <div class="data-caption">
+          Collect your data back<br />
+          <span class="data-span">5</span> File(s)
+        </div>
+          <div class="file-icon" data-type="doc"></div>
+      </div>
+    </div>
   </section>
 
 </body>
