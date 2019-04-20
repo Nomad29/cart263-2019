@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 /*********************************************
 
 Here is a description of any special CSS used.
@@ -402,15 +403,26 @@ h3 {
 div.data-caption {
   width: 100%;
   position: fixed;
-  color: rgba(255, 255, 255, .4);
   font-size: 1.5em;
   text-align: center;
   top: 30px;
+  left: 0;
   text-transform: uppercase;
+  z-index: 1;
 }
 
 div.data-caption span {
-  color: rgba(255, 255, 255, .6);
+  color: #b4b7bd;
+  font-size: 50vmax;
+  line-height: 100%;
+}
+
+.data-span {
+  color: #b4b7bd82;
+  z-index: 5;
+  font-size: 15vmax;
+  line-height: 100%;
+  font-family: 'Open Sans', sans-serif;
 }
 
 @keyframes bounce {
@@ -439,6 +451,7 @@ div.file-icon {
   box-sizing: border-box;
   position: fixed;
   left: 50%;
+  z-index: 5;
   top: 50%;
   border-radius: 3px;
   text-align: left;
