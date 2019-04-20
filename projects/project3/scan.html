@@ -62,19 +62,35 @@
 
   <!-- Interactive experience root -->
   <section>
-    <div class="content">
-      <div class="virus">
+    <div class="content" style="position: relative;">
+      <div id="title" style="font-size: 4.2vmax;text-align: center;width: 100%;position: fixed;font-weight:bold;top: 11%;color: #2d364ce0;left: 0;">
+        <div>MYLITTLE<span style="color: #fe7800;">VIRUS</span></div>
+        <div style="color: #454c604f;font-size: 2vmax;font-weight: normal;line-height: 1vmax;">AV.ITH'S DIGITAL PEST REMOVER</span></div>
+      </div>
+      <div class="virus" style="z-index: 2;width:50%;">
 
         <div id="sprite"></div>
         <div id="message"></div>
         <div id="influence"></div>
 
         <div id="btns">
-          <button id="btnPet" onClick="petScreen()">Pet</button>
-          <button id="btnFeed" onClick="feedScreen()">Feed</button>
-          <button id="btnPlay" onClick="playScreen()">Play</button>
+          <button id="btnPet" onClick="petScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
+            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/pet-b.png">
+            PET
+          </button>
+
+          <button id="btnFeed" onClick="feedScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
+            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/feed-b.png">
+            FEED
+          </button>
+
+          <button id="btnPlay" onClick="playScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;    font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
+            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/play-b.svg">
+            PLAY
+          </button>
         </div>
-        <button id="btnDelete" onClick="myVirus.reduceInf()">Delete</button>
+
+        <button id="btnDelete" onClick="myVirus.reduceInf()" style="background: no-repeat;border: none;">Delete</button>
 
       </div>
     </div>
@@ -95,7 +111,7 @@
     <div class="content" style="z-index: 2;position: relative;background: none;background-image:url(../project3/assets/images/bg-virus-f.png);background-position: 24.4vmax center;background-size: 55%;background-repeat: no-repeat;">
       <div class="virus">
         <div style="position: relative;">
-          <img id="spriteF" style="width: 13vmax;height: auto;" src="assets/images/virus.gif">
+          <img id="spriteF" style="width: 13vmax;height: auto;margin-right: 2vmax;" src="assets/images/virus.gif">
         </div>
         <div style="position: fixed;bottom: 0;height: 100%;width: 35vmax;left: 0;">
           <div style="position: relative;height: 100%;width: 21vmax;top: 0px;">

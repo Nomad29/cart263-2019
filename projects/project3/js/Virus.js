@@ -13,7 +13,7 @@ Virus JS file.
 // Virus basic functions
 function Virus() {
   this.influence = 100;
-  this.damage = 9;
+  this.damage = 19;
   this.regain = 1;
 }
 

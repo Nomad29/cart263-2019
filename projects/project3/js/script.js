@@ -106,7 +106,7 @@ $(document).ready(function() {
 
   let virusInfo = setInterval(function() {
     $influence.html(myVirus.influence);
-    $message.html("There! The virus");
+    $message.html(" ");
     $sprite.css("background-image", "url(assets/images/virus.gif)");
     myVirus.life();
 
@@ -137,9 +137,6 @@ $(document).ready(function() {
     if (myVirus.influence < 10) {
       $message.html("Virus has no more influence");
       $("#influence").css({
-        "display": "none"
-      });
-      $("#btns").css({
         "display": "none"
       });
       $("#btnDelete").css({
