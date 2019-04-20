@@ -38,9 +38,9 @@ let nbrClick = 0;
 let gameSFX = new Audio("assets/sounds/soundtrack.mp3");
 // Variables to hold the feeding game
 let $spriteF;
-let $fly;
-let $fly2;
-let $tomato;
+let $bad;
+let $bad2;
+let $good;
 // Sound effect for the feeding experience
 let crunchSFX = new Audio("assets/sounds/crunch.mp3");
 let purrSFX = new Audio("assets/sounds/purring.mp3");
@@ -192,35 +192,35 @@ $(document).ready(function() {
   $spriteF = $('#spriteF');
   // Make it droppable
   $spriteF.droppable({
-    accept: "#tomato",
+    accept: "#good",
     // The drop option specifies a function to call when a drop is completed
     drop: foodDropped
   });
 
-  // Get the fly element from the page
-  $fly = $('#fly');
+  // Get the bad element from the page
+  $bad = $('#bad');
   // Make it draggable
-  $fly.draggable({
+  $bad.draggable({
     revert: true,
     helper: "clone",
     start: function(event, ui) {
       say("Yuuugh...");
     }
   });
-  // Get the second fly element from the page
-  $fly2 = $('#fly2');
+  // Get the second bad element from the page
+  $bad2 = $('#bad2');
   // Make it draggable
-  $fly2.draggable({
+  $bad2.draggable({
     revert: true,
     helper: "clone",
     start: function(event, ui) {
       say("Yuuugh...");
     }
   });
-  // Get the tomato element from the page
-  $tomato = $('#tomato');
+  // Get the good element from the page
+  $good = $('#good');
   // Make it draggable
-  $tomato.draggable({
+  $good.draggable({
     revert: false,
     helper: "clone",
     start: function(event, ui) {
