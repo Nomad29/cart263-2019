@@ -1,4 +1,4 @@
-AV.ITH (Digital pest remover)
+AV.ITH (Antivirus.Information Technology Helper)
 ==============
 
 For my last coding project, I chose to do another interactive experience as I found fun in doing project 2, the web browser simulator. The experience is simple, yet a different concept of antivirus softwares from what we are used to for Windows users. In brief, this project intends to remake how we see and use an Antivirus software on a PC in an interactive way. To eradicate viruses on your computer, one must play a Tamagotchi game clone to reduce the latter's influence to be able to delete it easily afterwards.
