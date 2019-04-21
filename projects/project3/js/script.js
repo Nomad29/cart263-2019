@@ -45,10 +45,11 @@ let $good;
 // Sound effect for the feeding experience
 let crunchSFX = new Audio("assets/sounds/crunch.mp3");
 let purrSFX = new Audio("assets/sounds/purring.mp3");
-// Variables to hold the feeding game
+// Variables to hold the petting game
 let $spriteP;
 let $hand;
 let globalTimer;
+// Variable to hold the game of game
 // Counter for number of time the player needs to click in order to complete the game
 let dataCount = 5;
 
@@ -61,11 +62,11 @@ $(document).ready(function() {
   $('#play').hide();
   $('.end').hide();
 
-  // Calls the loading screen for the Scan page
+  // Calls the loading screen for the Scan page and 'scans' for virus
   setTimeout(function() {
     $('.loader-scan').hide();
     $('.warning-popup').show();
-  }, 900);
+  }, 12000);
 
   // Gets the virus elements from the Scan HTML page
   $sprite = $("#sprite");
@@ -108,10 +109,13 @@ $(document).ready(function() {
   $influence.html(myVirus.influence);
 
   let virusInfo = setInterval(function() {
+    // Give the ability to ID #influence in HTML to show the number of the
+    // $influence counter
     $influence.html(myVirus.influence);
     $message.html(" ");
     $sprite.css("background-image", "url(assets/images/virus.gif)");
     $hbar.css("background-image", "url(assets/images/hbar-100.png)");
+    // lets the virus gain back its influence slowy at a maximum of 100
     myVirus.life();
 
     if (myVirus.influence < 70) {
@@ -188,7 +192,9 @@ $(document).ready(function() {
       $("#sprite").css({
         "margin-left": "2vmax"
       });
+      // Stops the virus influence counter
       clearInterval(virusInfo);
+      // Makes the virus fade/die slowly when the counter reached 0 or less
       virusFade();
     }
   }, 1000);
@@ -198,14 +204,17 @@ $(document).ready(function() {
   // Get the spriteP element from the page
   $spriteP = $('#spriteP');
 
-  // Make it droppable
+  // Make Virus Sprite for petting game droppable
   $spriteP.droppable({
     accept: $hand,
+    // Makes the player wait 1.5 seconds for completing the petting game
+    // Needs to over with the hand over the virus sprite for 1.5s
     over: function(event, ui) {
       globalTimer = setTimeout(function() {
         handDropped();
-      }, 3000);
+      }, 1500);
     },
+    // Clears the timeout timer if the petting game if played again
     out: function(event, ui) {
       clearTimeout(globalTimer);
     }
@@ -213,7 +222,7 @@ $(document).ready(function() {
 
   // Get the hand element from the page
   $hand = $('#hand');
-  // Make it draggable
+  // Make the hand image be draggable
   $hand.draggable({
     revert: true,
     start: function(event, ui) {
@@ -226,16 +235,16 @@ $(document).ready(function() {
   //
   // Get the spriteF element from the page
   $spriteF = $('#spriteF');
-  // Make it droppable
+  // Make the Virus sprite for the feeding game be droppable
   $spriteF.droppable({
     accept: "#good",
     // The drop option specifies a function to call when a drop is completed
     drop: foodDropped
   });
 
-  // Get the bad element from the page
+  // Get the fries from the feeding game
   $bad = $('#bad');
-  // Make it draggable
+  // Make the fries image draggable
   $bad.draggable({
     revert: true,
     helper: "clone",
@@ -243,9 +252,9 @@ $(document).ready(function() {
       say("Yuuugh...");
     }
   });
-  // Get the second bad element from the page
+  // Get the second bad element, the hamburger from the feeding game
   $bad2 = $('#bad2');
-  // Make it draggable
+  // Make the hamburger image draggable
   $bad2.draggable({
     revert: true,
     helper: "clone",
@@ -253,9 +262,9 @@ $(document).ready(function() {
       say("Yuuugh...");
     }
   });
-  // Get the good element from the page
+  // Get the sandwich from the feeding game be draggable
   $good = $('#good');
-  // Make it draggable
+  // Make the sandwich image draggable
   $good.draggable({
     revert: false,
     helper: "clone",
@@ -294,7 +303,9 @@ $(document).ready(function() {
     // Ends the game of game, reset the counter, hide the game and diminish the virus influence
     if (dataCount === 0) {
       $('#play').hide();
+      // Reduce the Virus influence
       myVirus.reduceInf();
+      // Resets the counter to 5 if played again
       dataCount = 5;
       showCount.innerHTML = dataCount;
     }
@@ -318,7 +329,7 @@ window.onresize = function() {
 // Close the Warning screen after the scanning so the game can truly begins
 function closeWarning() {
   $('.warning-popup').hide();
-  // Plays the soundtrack when the game screen appears
+  // Plays the soundtrack in loop when the game screen appears
   gameSFX.loop = true;
   gameSFX.play();
 }
@@ -327,11 +338,13 @@ function closeWarning() {
 //
 // Fade slowly the virus sprite when deleted
 function virusFade() {
+  // Virus dying...
   $sprite.fadeOut(3000, 0);
 
+  // Waits still the virus sprite is gone then show ending
   setTimeout(function() {
   ending().fadeIn(4000);
-}, 5000);
+}, 7000);
 }
 
 // say (text)
@@ -352,21 +365,24 @@ function petScreen() {
 //
 // Called when a draggable element is dragged over the droppable element (the spriteP)
 function handDropped(event, ui) {
-  // We should "close the spriteP" by changing its image
+  // Base image of the virus
   $(this).attr('src', 'assets/images/virus.gif');
 
   if ($spriteP.attr('src') === 'assets/images/virus.gif') {
-    // If it is, we set the 'src' attribute to the closed spriteP
+    // If it is, changes image to virus who loves when petted
     $spriteP.attr('src', 'assets/images/virus-l.gif');
   }
 
   // And start the crunching sound effect of chewing
   purrSFX.play();
+
+  // Waits 1.5s for looking to the virus enjoying the attention before Ending
+  // the mini-game
   setTimeout(function() {
     $('#pet').hide();
+    // Reduce the Virus influence
     myVirus.reduceInf();
     if ($spriteP.attr('src') === 'assets/images/virus-l.gif') {
-      // If it is, we set the 'src' attribute to the closed spriteP
       $spriteP.attr('src', 'assets/images/virus.gif');
     }
   }, 1500);
@@ -389,21 +405,24 @@ function foodDropped(event, ui) {
   // Adds back the draggables elements that have been eaten if player make the virus eat again
   ui.draggable.show();
 
-  // We should "close the spriteF" by changing its image
+  // Base image of the virus
   $(this).attr('src', 'assets/images/virus.gif');
 
   if ($spriteF.attr('src') === 'assets/images/virus.gif') {
-    // If it is, we set the 'src' attribute to the closed spriteF
+    // If it is, change the virus image to loving what it gets
     $spriteF.attr('src', 'assets/images/virus-l.gif');
   }
 
   // And start the crunching sound effect of chewing
   crunchSFX.play();
+
+  // Waits 1.5s for looking to the virus enjoying the food before Ending
+  // the mini-game
   setTimeout(function() {
     $('#feed').hide();
+    // Reduce the Virus influence
     myVirus.reduceInf();
     if ($spriteF.attr('src') === 'assets/images/virus-l.gif') {
-      // If it is, we set the 'src' attribute to the closed spriteF
       $spriteF.attr('src', 'assets/images/virus.gif');
     }
   }, 1500);

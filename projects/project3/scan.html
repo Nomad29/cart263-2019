@@ -52,7 +52,7 @@
             <img src="assets/images/shield-warning-icon.png" style="width: 13vmax;height: auto;">
             <h3 style="font-size: 2em;line-height: 1em;">Warning! Virus found</h3>
             <p style="font-size:16px;">Immediate actions must be made to ensure your data and your computer is safe. All you have to do is tame the virus with your helper AV.ITH and your security will be guaranteed.</p>
-
+            <!-- Button going to the Scan page, the interactive experience -->
             <button id="btnWarning" class="button" onClick="closeWarning()" style="border: 2px solid #2d364c;background-color: #2d364c;color: white;line-height: 1em;width:250px;margin-top: 7%;">TAKE ACTION</button>
           </div>
 
@@ -65,11 +65,13 @@
   <section>
     <div class="content" style="position: relative;">
       <div id="title" style="font-size: 4.2vmax;text-align: center;width: 100%;position: fixed;font-weight:bold;top: 11%;color: #2d364ce0;left: 0;">
+        <!-- Title -->
         <div>MYLITTLE<span style="color: #fe7800;">VIRUS</span></div>
         <div style="color: #454c604f;font-size: 2vmax;font-weight: normal;line-height: 1vmax;">AV.ITH'S DIGITAL PEST REMOVER</span></div>
       </div>
       <div class="virus" style="z-index: 2;width:50%;">
 
+        <!-- Virus and heartbar -->
         <div id="sprite"></div>
         <div id="message"></div>
         <div style="color: white;height: 30%;width: 100%;font-weight: 600;text-align: center;">
@@ -80,6 +82,7 @@
           </div>
         </div>
 
+        <!-- Mini games buttons -->
         <div id="btns">
           <button id="btnPet" onClick="petScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;opacity:0.9;color:#2d364c;">
             <i class="fas fa-paw" style="margin: auto;font-size: 2vmax;display:block;line-height: 2.5vmax;"></i>
@@ -96,7 +99,7 @@
             PLAY
           </button>
         </div>
-
+        <!-- Delete button -->
         <div id="btnDelete" onClick="myVirus.reduceInf()" style="border: none;cursor:pointer;position:relative;width:30%;height: auto;margin:auto;left:0;right:0;top:0;bottom:0;">
           <img style="position: absolute;margin: auto;z-index: 2;left: 0;right: 0;top: 0;bottom: 0;width: 100%;" src="assets/images/hbar-0.png">
         </div>
@@ -109,7 +112,9 @@
   <section id="pet">
     <div class="content" style="background: none;background-image:url(../project3/assets/images/bg-pet.png);background-position: center;background-size: cover;background-repeat: no-repeat;width: 100%;height: 100%;position: fixed;top: 0;left: 0;">
       <div class="virus">
+        <!-- Hand object -->
         <img id="hand" style="width: 7vmax;height: auto;position: absolute;margin: 0 auto;margin-left: 7vmax;z-index: 2;" src="assets/images/handpet.svg">
+        <!-- Virus sprite -->
         <div style="position: relative;margin-top: 13vmax;"><img id="spriteP" style="width: 13vmax;height: auto;" src="assets/images/virus.gif"></div>
       </div>
     </div>
@@ -119,22 +124,26 @@
   <section id="feed">
     <div class="content" style="z-index: 2;position: relative;background: none;background-image:url(../project3/assets/images/bg-virus-f.png);background-position: 24.4vmax center;background-size: 55%;background-repeat: no-repeat;">
       <div class="virus">
+        <!-- Virus sprite -->
         <div style="position: relative;">
           <img id="spriteF" style="width: 13vmax;height: auto;margin-right: 2vmax;" src="assets/images/virus.gif">
         </div>
+        <!-- Food objects -->
         <div style="position: fixed;bottom: 0;height: 100%;width: 35vmax;left: 0;">
           <div style="position: relative;height: 100%;width: 21vmax;top: 0px;">
+            <!-- Fries object -->
             <img id="bad" style="position: absolute;left: 0;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/bad.png">
-
+            <!-- Sandwich object -->
             <img id="good" style="position: absolute;left: 7vmax;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/good-f.png">
-
+            <!-- Hamburger object -->
             <img id="bad2" style="position: absolute;left: 14vmax;top: 0;bottom: 0;margin: auto;z-index: 2;height:auto;width:7vmax;" src="assets/images/bad2.png">
-
+            <!-- Background for the food cabinet -->
             <img style="height: 80%;position: absolute;left: 0;width: 25vmax;top: 0;bottom: 0;margin: auto;" src="assets/images/bg-food-f.png">
           </div>
         </div>
       </div>
     </div>
+    <!-- Background of the feeding game -->
     <div id="background-feed"></div>
   </section>
 
@@ -142,8 +151,11 @@
   <section id="play">
     <div class="content" style="background: none;width: 100%;height: 100%;position: fixed;top: 0;left: 0;">
       <div class="virus">
+        <!-- Background of the game of game -->
         <img style="width: 100%;height: 35vmax;position: fixed;bottom: 0;left: 0;z-index:3;" src="assets/images/bg-play.png">
+        <!-- Second background: For the counter -->
         <img style="width: 35vmax;height: auto;position: absolute;bottom: 0;left: 0;top: 0;z-index: 1;right: 0;margin: auto;opacity:0.1;" src="assets/images/bg-play.gif">
+        <!-- Counter -->
         <span class="data-span">5</span>
         <div class="file-icon" data-type="doc"></div>
       </div>
@@ -160,7 +172,7 @@
             <img src="assets/images/shield-end-icon.png" style="width: 13vmax;height: auto;">
             <h3 style="font-size: 2em;line-height: 1em;">Your computer is now clean!</h3>
             <p style="font-size:16px;">Thank you for using AV.ITH! If you want to go back to the main menu and or scan again, please press the button below.</p>
-
+            <!-- button for return to the main menu -->
             <a href="index.html"><button id="btnWarning" class="button" style="border: 2px solid #2d364c;background-color: #2d364c;color: white;line-height: 1em;width:250px;margin-top: 7%;">MAIN MENU</button></a>
           </div>
 
