@@ -3,9 +3,9 @@
 /*****************
 
 AV.ITH
-Alexandra Melançon
+by Alexandra Melançon
 
-This is a jQuery and Responsivevoice experience that intends to remake how we see and use an Antivirus on a PC in an interactive way. To eradicate virus on your computer, one must play to a tamagotchi game clone to reduce the latter's influence to be able to delete it easely.
+This is a jQuery and Responsivevoice experience that intends to remake how we see and use an Antivirus software on a PC in an interactive way. To eradicate viruses on your computer, one must play a tamagotchi game clone to reduce the latter's influence to be able to delete it easely afterwards.
 
 The name of this interactive software is AV.ITH (Antivirus.Information Technology Helper)
 
