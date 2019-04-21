@@ -358,6 +358,20 @@ h3 {
   position: absolute;
 }
 
+
+/* ==============================
+   Virus related End screen
+============================== */
+.end {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #ececec;
+  position: absolute;
+}
+
+
 .content {
   display: flex;
   font-family: sans-serif;
@@ -384,10 +398,13 @@ h3 {
   margin: 0 auto;
   background-position: center;
   opacity: 1;
+  margin-bottom: 2vmax;
 }
 
 #message {
-  font-size: 3vmax;
+  font-size: 2vmax;
+  color: #c2bfc3;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #background-feed {
@@ -505,4 +522,20 @@ div.file-icon::after {
 
 button {
   cursor: pointer;
+}
+
+.barImage {
+background: none;background-image:url(../assets/images/hbar-100.png);
+background-position: center;
+background-size: contain;
+background-repeat: no-repeat;
+width: 15%;
+height: 30%;
+position: fixed;
+top: 16vmax;
+left: 0;
+right: 0;
+z-index:-1;
+bottom: 0;
+margin: auto;
 }

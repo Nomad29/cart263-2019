@@ -14,6 +14,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
@@ -52,7 +53,7 @@
             <h3 style="font-size: 2em;line-height: 1em;">Warning! Virus found</h3>
             <p style="font-size:16px;">Immediate actions must be made to ensure your data and your computer is safe. All you have to do is tame the virus with your helper AV.ITH and your security will be guaranteed.</p>
 
-            <button id="btnWarning" class="button" onClick="closeWarning()" style="border: 2px solid #2d364c;background-color: #2d364c;color: white;line-height: 1em;width:250px;    margin-top: 7%;">TAKE ACTION</button>
+            <button id="btnWarning" class="button" onClick="closeWarning()" style="border: 2px solid #2d364c;background-color: #2d364c;color: white;line-height: 1em;width:250px;margin-top: 7%;">TAKE ACTION</button>
           </div>
 
         </div>
@@ -71,26 +72,34 @@
 
         <div id="sprite"></div>
         <div id="message"></div>
-        <div id="influence"></div>
+        <div style="color: white;height: 30%;width: 100%;font-weight: 600;text-align: center;">
+          <div id="bar100" style="display: inline-flex;">
+            <div id="influence"></div>/100
+          </div>
+          <div class="barImage">
+          </div>
+        </div>
 
         <div id="btns">
-          <button id="btnPet" onClick="petScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
-            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/pet-b.png">
+          <button id="btnPet" onClick="petScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;opacity:0.9;color:#2d364c;">
+            <i class="fas fa-paw" style="margin: auto;font-size: 2vmax;display:block;line-height: 2.5vmax;"></i>
             PET
           </button>
 
-          <button id="btnFeed" onClick="feedScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
-            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/feed-b.png">
+          <button id="btnFeed" onClick="feedScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;opacity:0.9;color:#2d364c;">
+            <i class="fas fa-drumstick-bite" style="margin: auto;font-size: 2vmax;display:block;line-height: 2.5vmax;"></i>
             FEED
           </button>
 
-          <button id="btnPlay" onClick="playScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;line-height: 2vmax;    font-family: Open Sans, sans-serif;font-weight: 600;opacity: 0.8;">
-            <img id="hand" style="width: 2vmax;height: auto;margin: auto;display:block;" src="assets/images/play-b.svg">
+          <button id="btnPlay" onClick="playScreen()" style="background: no-repeat;border: none;height: 6vmax;width: 10%;opacity:0.9;color:#2d364c;">
+            <i class="fas fa-football-ball" style="margin: auto;font-size: 2vmax;display:block;line-height: 2.5vmax;"></i>
             PLAY
           </button>
         </div>
 
-        <button id="btnDelete" onClick="myVirus.reduceInf()" style="background: no-repeat;border: none;">Delete</button>
+        <div id="btnDelete" onClick="myVirus.reduceInf()" style="border: none;cursor:pointer;position:relative;width:30%;height: auto;margin:auto;left:0;right:0;top:0;bottom:0;">
+          <img style="position: absolute;margin: auto;z-index: 2;left: 0;right: 0;top: 0;bottom: 0;width: 100%;" src="assets/images/hbar-0.png">
+        </div>
 
       </div>
     </div>
@@ -140,6 +149,25 @@
       </div>
     </div>
   </section>
+
+  <!-- Ending: Virus has been cleaned up -->
+  <div class="end">
+    <section>
+      <div class="aboutus">
+
+        <div class="about-container">
+          <div class="about-item">
+            <img src="assets/images/shield-end-icon.png" style="width: 13vmax;height: auto;">
+            <h3 style="font-size: 2em;line-height: 1em;">Your computer is now clean!</h3>
+            <p style="font-size:16px;">Thank you for using AV.ITH! If you want to go back to the main menu and or scan again, please press the button below.</p>
+
+            <a href="index.html"><button id="btnWarning" class="button" style="border: 2px solid #2d364c;background-color: #2d364c;color: white;line-height: 1em;width:250px;margin-top: 7%;">MAIN MENU</button></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
 
 </body>
 

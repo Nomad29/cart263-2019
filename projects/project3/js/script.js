@@ -22,6 +22,7 @@ https://jquery.com/
 // Links some variables to the HTML page
 let myVirus;
 let $sprite;
+let $hbar;
 let $message;
 let $influence;
 // Voice variable
@@ -58,6 +59,7 @@ $(document).ready(function() {
   $('#pet').hide();
   $('#feed').hide();
   $('#play').hide();
+  $('.end').hide();
 
   // Calls the loading screen for the Scan page
   setTimeout(function() {
@@ -67,6 +69,7 @@ $(document).ready(function() {
 
   // Gets the virus elements from the Scan HTML page
   $sprite = $("#sprite");
+  $hbar = $(".barImage");
   $message = $("#message");
   $influence = $("#influence");
 
@@ -108,49 +111,82 @@ $(document).ready(function() {
     $influence.html(myVirus.influence);
     $message.html(" ");
     $sprite.css("background-image", "url(assets/images/virus.gif)");
+    $hbar.css("background-image", "url(assets/images/hbar-100.png)");
     myVirus.life();
 
     if (myVirus.influence < 70) {
-      $message.html("Diminish its influence");
+      $message.html(" ");
       $sprite.css("background-image", "url(assets/images/virus.gif)");
+      $hbar.css("background-image", "url(assets/images/hbar-70.png)");
     }
 
     if (myVirus.influence < 50) {
-      $message.html("Do it again!");
+      $message.html(" ");
       $sprite.css("background-image", "url(assets/images/virus-a.gif)");
+      $hbar.css("background-image", "url(assets/images/hbar-50.png)");
     }
 
     if (myVirus.influence < 30) {
-      $message.html("Just a little more");
+      $message.html(" ");
       $sprite.css("background-image", "url(assets/images/virus-a.gif)");
+      $hbar.css("background-image", "url(assets/images/hbar-30.png)");
+      $(".barImage").css({
+        "display": "inherit"
+      });
       $("#influence").css({
         "display": "inherit"
       });
       $("#btns").css({
-        "display": "inherit"
+        "display": "inherit",
+        "pointer-events": "all"
       });
       $("#btnDelete").css({
         "display": "none"
       });
+      $("#bar100").css({
+        "display": "inline-flex"
+      });
+      $("#sprite").css({
+        "margin-left": "0"
+      });
     }
 
-    if (myVirus.influence < 10) {
-      $message.html("Virus has no more influence");
+    if (myVirus.influence < 20 && myVirus.influence > 0) {
+      $message.html(" ");
+      $("#btns").css({
+        "pointer-events": "none"
+      });
+      $hbar.css("display", "none");
       $("#influence").css({
         "display": "none"
       });
       $("#btnDelete").css({
-        "display": "inherit"
+        "display": "inline-flex"
+      });
+      $("#bar100").css({
+        "display": "none"
       });
       $sprite.css("background-image", "url(assets/images/virus-s.gif)");
+      $("#sprite").css({
+        "margin-left": "2vmax"
+      });
     }
 
-    if (myVirus.influence < 0) {
+    if (myVirus.influence <= 0) {
       $message.html("Virus has been deleted");
-      $influence.html = 0;
       $sprite.css("background-image", "url(assets/images/virus-s.gif)");
+      $hbar.css("display", "none");
       $("#btnDelete").css({
         "display": "none"
+      });
+      $("#bar100").css({
+        "display": "none"
+      });
+      $("#btns").css({
+        "pointer-events": "none"
+      });
+      $("#sprite").css({
+        "margin-left": "2vmax"
       });
       clearInterval(virusInfo);
       virusFade();
@@ -292,6 +328,10 @@ function closeWarning() {
 // Fade slowly the virus sprite when deleted
 function virusFade() {
   $sprite.fadeOut(3000, 0);
+
+  setTimeout(function() {
+  ending().fadeIn(4000);
+}, 5000);
 }
 
 // say (text)
@@ -375,4 +415,12 @@ function foodDropped(event, ui) {
 // The function for the game of games for the Virus
 function playScreen() {
   $('#play').show();
+}
+
+
+// ending()
+//
+// The function for ending to show
+function ending() {
+  $('.end').show();
 }
