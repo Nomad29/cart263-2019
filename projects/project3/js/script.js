@@ -33,8 +33,8 @@ let voiceParameters = {
   rate: 0.8,
   volume: 10
 }
-// Makes the virus's voice make statement each clicks
-let nbrClick = 0;
+// Creates an Array for the text the virus says when playing
+let virusSpeech = new Array('You think you can buy me?', 'This is not very nice...', 'You fool...', 'You think you can beat me!?', 'En garde, ma mignonne!', 'I will never succumb to the likes of you!');
 // Soundtrack for the experience
 let gameSFX = new Audio("assets/sounds/soundtrack.mp3");
 // Variables to hold the feeding game
@@ -76,32 +76,9 @@ $(document).ready(function() {
 
   // Lets the virus's voice speak when buttons are clicked
   $("#btnPet, #btnFeed, #btnPlay").on("click", function() {
-    // Adds 1 with one click
-    nbrClick = nbrClick + 1;
-
-    if (nbrClick === 1) {
-      say("You think you can buy me?");
-    }
-
-    if (nbrClick === 2) {
-      say("This is not very nice...");
-    }
-
-    if (nbrClick === 3) {
-      say("You fool...");
-    }
-
-    if (nbrClick === 4) {
-      say("You think you can beat me!?");
-    }
-
-    if (nbrClick === 5) {
-      say("En garde ma mignonne!");
-    }
-
-    if (nbrClick === 6) {
-      say("I will never succumb to the likes of you!");
-    }
+    // Says a random sentence from the Array virusSpeech when mini-game
+    // buttons are clicked
+    say(virusSpeech[Math.floor(Math.random() * virusSpeech.length)]);
   });
 
   // Creates the Virus
@@ -194,6 +171,8 @@ $(document).ready(function() {
       });
       // Stops the virus influence counter
       clearInterval(virusInfo);
+      // Virus final words
+      say("Going to sleep now...");
       // Makes the virus fade/die slowly when the counter reached 0 or less
       virusFade();
     }
@@ -343,8 +322,8 @@ function virusFade() {
 
   // Waits still the virus sprite is gone then show ending
   setTimeout(function() {
-  ending().fadeIn(4000);
-}, 7000);
+    ending().fadeIn(4000);
+  }, 9000);
 }
 
 // say (text)
